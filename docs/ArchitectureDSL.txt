@@ -1,0 +1,79 @@
+workspace "Local Search Engine with Content Search" "Indexes and searches local files using filenames and content"
+
+    !identifiers hierarchical
+
+    model {
+        u = person "User" "Searches for documents by name or content"
+        a = person "Administrator" "Manages indexing"
+        
+        lse = softwareSystem "Local Search Engine" {
+             rf = container "React Frontend" "React" "Handles UI, user inputs, and displays search results"
+             db = container "MySQL Database" "MySQL" "Stores indexed metadata, filenames, and extracted content" {
+                tags "Database"
+            }
+            fs = container "File System" "Storage" "Contains files to be indexed"
+            jb = container "Java Backend (Search API)" "Spring Boot" "Processes search queries, fetches results"{
+                sc = component "Search Controller" "Spring Boot" "Handles incoming search requests"
+                ss = component "Search Service" "Spring Boot" "Processes queries using FULLTEXT search"
+                sr = component "Search Repository" "Spring Boot" "Fetches results from MySQL"
+
+                lse.rf -> sc "Calls API"
+                sc -> ss "Processes search request"
+                ss -> sr "Performs FULLTEXT search"
+                sr -> lse.db "Fetches results"
+            }
+            is = container "Indexer Service" "Spring Boot" "Extracts content from the file system and updates metadata"{
+                     fc = component "File Crawler" "Java" "Scans directories for files"
+                     me = component "Metadata Extractor" "Java" "Extracts file metadata"
+                     te = component "Text Extractor" "Java" "Extracts text content using Apache Tika"
+                     wm = component "Word Mapper" "Java" "Indexes words for fast searching"
+                     dw = component "Database Writer" "Java" "Stores indexed data"
+
+            fc -> lse.fs "Reads files"
+            fc -> me "Extracts metadata"
+            me -> dw "Stores metadata in MySQL"
+            te -> wm "Extracts text from PDFs, DOCX, etc."
+            wm -> dw "Stores word indexes"
+            }
+           
+          
+        }
+        
+        u -> lse.rf "Searches documents"
+        a -> lse.is "Triggers indexing"
+        lse.rf -> lse.jb "Sends search requests"
+        lse.jb -> lse.db "Queries indexed data"
+        lse.is -> lse.fs "Extracts files and content"
+        lse.is -> lse.db "Stores extracted data"
+
+       
+       }
+        
+    
+
+    views {
+        systemContext lse "ContextDiagram" {
+            include *
+            autolayout lr
+        }
+
+        container lse "ContainerDiagram" {
+            include *
+            autolayout lr
+        }
+
+        component lse.jb "ComponentDiagram-Backend" {
+            include *
+            autolayout lr
+        }
+        
+        component lse.is "ComponentDiagram-Indexer" {
+            include *
+            autolayout lr
+        }
+        
+
+        theme default
+    }
+        
+    }
