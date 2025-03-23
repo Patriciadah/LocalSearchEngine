@@ -66,7 +66,7 @@ public class FileIndexRepository {
      * @param query list of files resulting from file crawling
      * */
     public List<FileIndex> searchFiles(String query) {
-        String sql = "SELECT * FROM file_index WHERE MATCH(file_content) AGAINST (? IN NATURAL LANGUAGE MODE)";
+        String sql = "SELECT * FROM file_index WHERE MATCH(file_name,file_content) AGAINST (? IN NATURAL LANGUAGE MODE)";
         return jdbcTemplate.query(sql, new FileIndexRowMapper(), query);
     }
     public List<FileIndex> searchAll() {
