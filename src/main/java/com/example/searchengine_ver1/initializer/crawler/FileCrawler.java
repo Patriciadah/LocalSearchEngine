@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * */
 @Component
 public class FileCrawler {
-
+    private static final Set<String> IGNORED_EXTENSIONS = Set.of("exe", "tmp", "log", "bin","md");
     /**
      *  @param rootDir the root directory to start crawler
      *  @return list of files
@@ -24,7 +24,19 @@ public class FileCrawler {
         return Files.walk(Paths.get(rootDir))
                 .filter(Files::isRegularFile)
                 .map(Path::toFile)
+                .filter(this::isValidFileTxT)
                 .collect(Collectors.toList());
     }
-
+    /**
+     * Checks if a file should be indexed (ignores certain file extensions).
+     * For future use when ignoring rules are required
+     * */
+    private boolean isValidFileIgnoreRules(File file) {
+        String extension = FileUtils.getFileExtension(file);
+        return !IGNORED_EXTENSIONS.contains(extension);
+    }
+    private boolean isValidFileTxT(File file) {
+        String extension = FileUtils.getFileExtension(file);
+        return extension.equals("txt");
+    }
 }
