@@ -56,8 +56,10 @@ public class FileUtils {
         String mimeType = metadata.get("Content-Type"); // Example: "application/pdf"
 
         if (mimeType != null) {
+            DebugUtils.writeInFile(mimeType.substring(mimeType.lastIndexOf('/') + 1));
             return mimeType.substring(mimeType.lastIndexOf('/') + 1); // Extracts "pdf" from "application/pdf"
         }
+
         return "";
     }
 }

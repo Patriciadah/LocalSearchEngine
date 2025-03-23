@@ -1,0 +1,78 @@
+Am ajun aici
+Starting file indexing...
+Resetting database...
+Auto-increment reset.
+Database is cleared
+pdf
+x-matlab
+png
+plain
+plain
+plain
+plain
+plain
+plain
+x-matlab
+Indexed 6 files.
+plain
+plain
+plain
+plain
+plain
+plain
+Indexed 6 files.
+File indexing completed.
+Am ajun aici
+Starting file indexing...
+Resetting database...
+Auto-increment reset.
+Database is cleared
+pdf
+x-matlab
+png
+plain
+plain
+plain
+plain
+plain
+plain
+x-matlab
+Indexed 6 files.
+plain
+plain
+plain
+plain
+plain
+plain
+Indexed 6 files.
+File indexing completed.
+Am ajun aici
+Starting file indexing...
+Resetting database...
+Auto-increment reset.
+Database is cleared
+pdf
+x-matlab
+png
+plain
+plain
+plain
+plain
+plain
+plain
+x-matlab
+Indexed 6 files.
+No content found by apache Tika
+plain
+No content found by apache Tika
+plain
+No content found by apache Tika
+plain
+No content found by apache Tika
+plain
+No content found by apache Tika
+plain
+No content found by apache Tika
+plain
+Indexed 6 files.
+File indexing completed.

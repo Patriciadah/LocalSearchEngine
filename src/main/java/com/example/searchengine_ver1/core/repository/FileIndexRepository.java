@@ -2,10 +2,11 @@ package com.example.searchengine_ver1.core.repository;
 
 
 import com.example.searchengine_ver1.core.model.FileIndex;
+import com.example.searchengine_ver1.core.utils.DebugUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
+import static com.example.searchengine_ver1.core.utils.DebugUtils.writeInFile;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -48,6 +49,26 @@ public class FileIndexRepository {
     public List<FileIndex> searchFiles(String query) {
         String sql = "SELECT * FROM file_index WHERE MATCH(file_content) AGAINST (? IN NATURAL LANGUAGE MODE)";
         return jdbcTemplate.query(sql, new FileIndexRowMapper(), query);
+    }
+    /**
+     * Reinitialize database to store the new system of files
+     * */
+    public void clearDatabase() {
+        DebugUtils.writeInFile("Resetting database...");
+        clearTable();
+        resetAutoIncrement();
+    }
+    private void clearTable(){
+        jdbcTemplate.update("DELETE FROM file_index");
+    }
+
+    private void resetAutoIncrement() {
+        try {
+            jdbcTemplate.execute("ALTER TABLE file_index AUTO_INCREMENT = 1");
+            DebugUtils.writeInFile("Auto-increment reset.");
+        } catch (Exception e) {
+            System.err.println("Error resetting auto-increment: " + e.getMessage());
+        }
     }
 }
 

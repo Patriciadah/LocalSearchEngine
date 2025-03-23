@@ -37,6 +37,6 @@ public class FileCrawler {
     }
     private boolean isValidFileTxT(File file) {
         String extension = FileUtils.getFileExtension(file);
-        return extension.equals("txt");
+        return extension.equals("plain");
     }
 }

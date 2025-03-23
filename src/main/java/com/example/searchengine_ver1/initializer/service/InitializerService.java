@@ -1,10 +1,13 @@
 package com.example.searchengine_ver1.initializer.service;
 
+import com.example.searchengine_ver1.core.utils.DebugUtils;
 import com.example.searchengine_ver1.initializer.indexer.FileIndexer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
+import static com.example.searchengine_ver1.core.utils.DebugUtils.writeInFile;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 
 /**
  * Start point for initializer service of file data set.
@@ -19,11 +22,12 @@ public class InitializerService {
     public InitializerService(FileIndexer fileIndexer) {
         this.fileIndexer = fileIndexer;
     }
-    @EventListener(ApplicationReadyEvent.class) // Runs after app is fully started
-    public void initialize() {
-        String rootDirectory = "D:\\Prolog labs"; // Change to your directory
-        System.out.println("Starting file indexing...");
+
+    // Trigger manually when needed (e.g., from an API endpoint)
+    public void initialize(String rootDirectory) {
+        DebugUtils.writeInFile("Starting file indexing...");
         fileIndexer.indexFiles(rootDirectory);
-        System.out.println("File indexing completed.");
+        DebugUtils.writeInFile("File indexing completed.");
+
     }
 }

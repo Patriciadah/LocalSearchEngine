@@ -2,6 +2,7 @@ package com.example.searchengine_ver1.initializer.indexer;
 
 import com.example.searchengine_ver1.core.model.FileIndex;
 import com.example.searchengine_ver1.core.repository.FileIndexRepository;
+import com.example.searchengine_ver1.core.utils.DebugUtils;
 import com.example.searchengine_ver1.initializer.crawler.FileCrawler;
 import com.example.searchengine_ver1.core.utils.FileUtils;
 import org.apache.tika.metadata.Metadata;
@@ -10,14 +11,12 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class FileIndexer {
@@ -36,7 +35,11 @@ public class FileIndexer {
      * @param rootDirectory The base directory to index.
      */
     public void indexFiles(String rootDirectory) {
-
+        /*
+        * Clears the database used for the new root directory
+        * */
+        fileIndexRepository.clearDatabase();
+        DebugUtils.writeInFile("Database is cleared");
         /*
         *  Takes the root directory and crawls recursively to obtain a List of files
         */
@@ -46,7 +49,7 @@ public class FileIndexer {
         }
         catch(Exception e){
             // TODO inform for code robustness
-            System.out.println("Something went wong with FileCrawler");
+            DebugUtils.writeInFile("Something went wong with FileCrawler");
         }
 
         /*
@@ -55,11 +58,15 @@ public class FileIndexer {
         List<FileIndex> fileIndexes = new ArrayList<>();
 
         assert files != null;
+        DebugUtils.writeInFile("Indexed " + files.size() + " files.");
         for (File file : files) {
             try {
                 // Extract text content using Apache Tika
                 String content = FileUtils.extractText(file);
-
+                if(!content.isEmpty())
+                    DebugUtils.writeInFile(content);
+                else
+                    DebugUtils.writeInFile("No content found by apache Tika");
                 // Extract metadata
                 Metadata metadata = FileUtils.extractMetadata(file);
 
@@ -86,7 +93,8 @@ public class FileIndexer {
 
         if (!fileIndexes.isEmpty()) {
             fileIndexRepository.saveAll(fileIndexes); // Bulk insert into MySQL
-            System.out.println("Indexed " + fileIndexes.size() + " files.");
+
         }
+        DebugUtils.writeInFile("Indexed " + fileIndexes.size() + " files.");
     }
 }
