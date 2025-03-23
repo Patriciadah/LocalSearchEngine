@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class FileIndexer {
@@ -29,20 +30,28 @@ public class FileIndexer {
         this.fileCrawler = fileCrawler;
         this.fileIndexRepository = fileIndexRepository;
     }
-
+    //TODO implement multiple line comment for class and methods
     /**
      * Scans the file system and indexes files into the database.
      * @param rootDirectory The base directory to index.
      */
     public void indexFiles(String rootDirectory) {
+
+        /*
+        *  Takes the root directory and crawls recursively to obtain a List of files
+        */
         List<File> files=null;
         try{
             files = fileCrawler.crawlDirectory(rootDirectory);
         }
         catch(Exception e){
+            // TODO inform for code robustness
             System.out.println("Something went wong with FileCrawler");
         }
 
+        /*
+        * Maps SQL responses to FileIndex model objects
+        * */
         List<FileIndex> fileIndexes = new ArrayList<>();
 
         assert files != null;

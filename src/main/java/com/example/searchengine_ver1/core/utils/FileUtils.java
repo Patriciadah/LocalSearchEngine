@@ -52,8 +52,12 @@ public class FileUtils {
      * Gets file extension from file name.
      */
     public static String getFileExtension(File file) {
-        String name = file.getName();
-        int lastDot = name.lastIndexOf('.');
-        return (lastDot == -1) ? "" : name.substring(lastDot + 1);
+        Metadata metadata = extractMetadata(file);
+        String mimeType = metadata.get("Content-Type"); // Example: "application/pdf"
+
+        if (mimeType != null) {
+            return mimeType.substring(mimeType.lastIndexOf('/') + 1); // Extracts "pdf" from "application/pdf"
+        }
+        return "";
     }
 }
