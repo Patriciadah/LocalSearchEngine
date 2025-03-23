@@ -4,9 +4,7 @@ import com.example.searchengine_ver1.core.utils.DebugUtils;
 import com.example.searchengine_ver1.initializer.indexer.FileIndexer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import static com.example.searchengine_ver1.core.utils.DebugUtils.writeInFile;
-import java.nio.file.Files;
-import java.nio.file.Path;
+
 
 
 /**

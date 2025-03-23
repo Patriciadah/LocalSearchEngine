@@ -17,6 +17,8 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class FileIndexer {
@@ -93,9 +95,68 @@ public class FileIndexer {
         }
 
         if (!fileIndexes.isEmpty()) {
-            fileIndexRepository.saveAll(fileIndexes); // Bulk insert into MySQL
+            fileIndexRepository.insertAll(fileIndexes); // Bulk insert into MySQL
 
         }
         DebugUtils.writeInFile("Indexed " + fileIndexes.size() + " files.");
     }
+
+    public void updateIndex(String rootDirectory) {
+        List<File> files;
+        try {
+            files = fileCrawler.crawlDirectory(rootDirectory);
+        } catch (Exception e) {
+            System.err.println("Error during file crawling: " + e.getMessage());
+            return;
+        }
+
+        // Fetch all indexed files from the database
+        List<FileIndex> existingFiles = fileIndexRepository.searchAll();
+        Map<String, FileIndex> existingFileMap = existingFiles.stream()
+                .collect(Collectors.toMap(FileIndex::getFilePath, file -> file));
+
+        List<FileIndex> newFiles = new ArrayList<>();
+        List<FileIndex> updatedFiles = new ArrayList<>();
+
+        for (File file : files) {
+            try {
+                BasicFileAttributes attrs = Files.readAttributes(file.toPath(), BasicFileAttributes.class);
+                LocalDateTime lastModified = Instant.ofEpochMilli(attrs.lastModifiedTime().toMillis())
+                        .atZone(ZoneId.systemDefault())
+                        .toLocalDateTime();
+
+                FileIndex existingFile = existingFileMap.get(file.getAbsolutePath());
+
+                if (existingFile == null) {
+                    // New file - Insert
+                    FileIndex newFile = new FileIndex(
+                            null,
+                            file.getName(),
+                            file.getAbsolutePath(),
+                            FileUtils.getFileExtension(file),
+                            FileUtils.extractText(file),
+                            lastModified
+                    );
+                    newFiles.add(newFile);
+                } else if (existingFile.getIndexedAt().isBefore(lastModified)) {
+                    // File exists but was modified - Update
+                    existingFile.setIndexedAt(lastModified);
+                    existingFile.setFileContent(FileUtils.extractText(file));
+                    updatedFiles.add(existingFile);
+                }
+            } catch (Exception e) {
+                System.err.println("Error processing file: " + file.getAbsolutePath() + " - " + e.getMessage());
+            }
+        }
+
+        if (!newFiles.isEmpty()) {
+            fileIndexRepository.insertAll(newFiles);
+            System.out.println("Inserted " + newFiles.size() + " new files.");
+        }
+        if (!updatedFiles.isEmpty()) {
+            fileIndexRepository.updateAll(updatedFiles);
+            System.out.println("Updated " + updatedFiles.size() + " modified files.");
+        }
+    }
+
 }

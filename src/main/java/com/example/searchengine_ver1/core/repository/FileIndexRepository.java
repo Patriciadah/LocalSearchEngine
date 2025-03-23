@@ -26,7 +26,7 @@ public class FileIndexRepository {
  * Batch inserting the file system into database
  * @param files list of files resulting from file crawling
  * */
-    public void saveAll(List<FileIndex> files) {
+    public void insertAll(List<FileIndex> files) {
         String sql = "INSERT INTO file_index (file_name, file_path, file_type, file_content, indexed_at) VALUES (?, ?, ?, ?, ?)";
 
         List<Object[]> batchArgs = new ArrayList<>();
@@ -42,6 +42,25 @@ public class FileIndexRepository {
 
         jdbcTemplate.batchUpdate(sql, batchArgs);
     }
+    public void updateAll(List<FileIndex> files) {
+        String sql = "UPDATE file_index " +
+                "SET file_name = ?, file_type = ?, file_content = ?, indexed_at = ? " +
+                "WHERE file_path = ?";
+
+        List<Object[]> batchArgs = new ArrayList<>();
+        for (FileIndex file : files) {
+            batchArgs.add(new Object[]{
+                    file.getFileName(),
+                    file.getFileType(),
+                    file.getFileContent(),
+                    file.getIndexedAt(),
+                    file.getFilePath() // WHERE condition
+            });
+        }
+
+        jdbcTemplate.batchUpdate(sql, batchArgs);
+    }
+
     /**
      * Retrieve all match cases from database making use of full-text indexing
      * @param query list of files resulting from file crawling
@@ -49,6 +68,10 @@ public class FileIndexRepository {
     public List<FileIndex> searchFiles(String query) {
         String sql = "SELECT * FROM file_index WHERE MATCH(file_content) AGAINST (? IN NATURAL LANGUAGE MODE)";
         return jdbcTemplate.query(sql, new FileIndexRowMapper(), query);
+    }
+    public List<FileIndex> searchAll() {
+        String sql = "SELECT * FROM file_index";
+        return jdbcTemplate.query(sql, new FileIndexRowMapper());
     }
     /**
      * Reinitialize database to store the new system of files
