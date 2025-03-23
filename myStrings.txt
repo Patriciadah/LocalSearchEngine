@@ -15,64 +15,201 @@ plain
 x-matlab
 Indexed 6 files.
 plain
+reading text file: D:\Prolog labs\Lab2\lab1predat.txt
+
+constantele pot fi numere sau simboluri sau atom.
+Toate cu litera mica constanta. Cu litera mare ii variablia Cu underline ii variabila.
+Hyphen -exista un singur element
+[1,2,3|_] _ e un singur element
+ t(1, t(-2, nil, nil), t(8,nil,nil)) primu ii root-u
+[]- lista goala
+[1,'Ana', t(8,nil,nil)]- merge ce ciudat poti pune variabile si constante si orice si merge in prolog.
+[1,2,3|X] X e otail dar ca LISTA!!!
+la [1,2,3] => X lista goala,
+la [1,2,3,4] => X e [4] -vezi ca e lista
+la [1,2] fail ca nu poate da match
+
+putem scrie si / sau asa explca?
+[1 |[2 | [3 | []]]]
+
+
+Facts
+
+animal(girafa).
+
+Query ii preficat fara head
+?-animal(lion)-false
+?-animal(_)-is there an animal
+?-animal(X)- who is an animal
+
+
+a=a- verifica daca is egale
+a=b fals
+a=A- variabila A primeste a
+A=.. assigneaza
+X=Y- le face sinonime 
+X=2 => si X si Y o sa fie 2
+2=X <=> X=2 - nu conteaza ordinea
+Exercitii
+
+, inseamna si
+?- X = 3, Y = 2, X = Y. da fals
+
+X=Y si X si Y au valori nu mai fac sinonime ci le compara URAT RAU
+
+?- X = 3, X = Y, Y = 2. fals pt ca avem 'si' si X se comporta ca o constanta si o sa avem 3=2 fals
+
+?- a(X,Y) = a(b(c,Y),Z). 
+
+X=b(c,Y)
+Y=Z
+X o sa stie ca Y=Z ca and se face in paralel
+
+
+
+?- [abc, 1, f(x) | L2] = [abc|T].
+
+?- [abc, 1, f(x) | L2] = [abc, 1, f(x)]. 
+
+cine e mama lui Andrei?
+?- mother (X,andrei)
+
+sibling(X,Y):- parent(Z,X), parent(Z,Y), X/=Y
+
+brother(X,Y):- sibling(X,Y),man(X).
+aunt(X,Y):-parent(Z,Y), sister(X,Z). -vezi ca trebuie sa pui punct.
+grandmother(X,Y):-parent(Z,Y),mother(X,Z).
+vezi ca ii recusrsivitate la ancestor
+ancestor(X,Y):-parent(X,Y). /* ai grija la asta
+ancestor(X,Y):-parent(X,Z), ancestor(Z,Y). 
+
+dar avem nevoie se cond de oprire
+
 plain
 plain
+reading text file: D:\Prolog labs\Lab2\lab2.pl
+
+gcd(X,X,X).
+gcd(X,Y,Z):-X>Y, Diff is X-Y, gcd(Diff,Y,Z).
+gcd(X,Y,Z):-X<Y, Diff is Y-X, gcd(X,Diff,Z).
+
+
+lcm(0,_,0).
+lcm(_,0,0).
+lcm(X,Y,Z):-gcd(X,Y,G), Z is (X*Y)/G.
+
+solve(A,B,C,X):- D is B*B-4*A*C, X1 is (-B -sqrt(D)/(2*A)), X2 is (-B +sqrt(D)/(2*A)), (X is X1; X is X2,D>0).
 plain
 plain
-plain
-Indexed 6 files.
-File indexing completed.
-Am ajun aici
-Starting file indexing...
-Resetting database...
-Auto-increment reset.
-Database is cleared
-pdf
-x-matlab
-png
+reading text file: D:\Prolog labs\Lab2\lab2pl.txt
+
+X is 1+2 -forteaza evaluarea 
+X=1+2
+in prolog predicatele returneaza true sau false nu alte valori, trebuie un parametru suplimentar. Return ii in al treilea element
+forward si backward
+la forward scriem un program iterativ ca si cum am scrie for, while, calculaeaza i place si il da mai departe 
+la backward avem fara parametru pt ca se calculeaza dupa functia recursiva dupa ce ma intorc din recursivitate.
+Foarte imp sa intelegem forward si backward recursion.
 plain
 plain
+reading text file: D:\Prolog labs\Lab2\lab3.pl
+
+% lab3 exercitii
+add_first(X,L,R):- Y=[X|L], R=Y.
+
+append1([], L2, R) :- R=L2.
+append1([H|T], L2, R) :- append1(T, L2, TailR), R=[H|TailR]. 
+
+% o putem scrie si asa in backward recursion append([H|T],L,R):-append(T,L,R1).
+
+% append3(L1,L2,L3,R).
+% L1 cu L2 si dupa aceea L1 cu L3 sau L2 cu L3
+% |l1|+ |l1+l2| si a doua |l2|+|l1| o alegem pe a doua L2->L3 si L1->L2 luam de la capat pentru eficientizare
+append3([],[],L3,R):- R=L3.
+append3(L1,[],[],R):- R=L1.
+append3([],L2,[],R):- R=L2.
+append3([],L2,L3,R):- append(L2,L3,R).
+append3(L1,[],L3,R):- append(L1,L3,R).
+append3(L1,L2,[],R):- append(L1,L2,R).
+append3(L1,L2,L3,R):- append(L2,L3,T1), append(L1,T1,R).
+
+%exercitiul 3 sum(L,S).
+sum_bwd([],S):-S=0.
+sum_bwd([H|T],S):- sum_bwd(T,SS), S is SS + H. 
+
+sum_fwd(L,S):- sum_fwd(L,0,S).
+sum_fwd([],Sum,S):- S=Sum.
+sum_fwd([H|T],Sum,S):- Saux is H + Sum, sum_fwd(T,Saux,S).
+
+%ex 4
+
+
+separate_parity([],[],[]).
+separate_parity([H|T],E,O):-H mod 2 =:=0 ,separate_parity(T,E1,O), E= [H|E1].
+separate_parity([H|T],E,O):-H mod 2 =:=1, separate_parity(T,E,O1), O= [H|O1].
+
+
+
+% forward nu l-am vazut
+% initializez la final-backward
+% remove_duplicates(L,R). -ramane ultima aparitie
+remove_duplicates([],[]).
+remove_duplicates([H|T],R):- member(H,T), ! , remove_duplicates(T,R).
+remove_duplicates([H|T],R):- remove_duplicates(T,R1), R=[H|R1].
+
+
+
+
 plain
 plain
+reading text file: D:\Prolog labs\lab2pl.txt
+
+X is 1+2 -forteaza evaluarea 
+X=1+2
+in prolog predicatele returneaza true sau false nu alte valori, trebuie un parametru suplimentar. Return ii in al treilea element
+forward si backward
+la forward scriem un program iterativ ca si cum am scrie for, while, calculaeaza i place si il da mai departe 
+la backward avem fara parametru pt ca se calculeaza dupa functia recursiva dupa ce ma intorc din recursivitate.
+Foarte imp sa intelegem forward si backward recursion.
+
+lcm(X,Y,Z):gcd(X,Y,G), Z is (X*Y)/G. --vezi ca poate fi nr 0 si G 0
+lcm(0,_,0).
+lcm(_,0,0).
+
+solve(A,B,C,X):- D is B*B-4*A*C, X1 is -B -sqrt(D)/(2*A), X2 is -B +sqrt(D)/(2*A), X is X1; X is X2. -uita-te in fisier nu ii asta bine
+
+pow_bwd(_,0,1).
+pow_bwd(1,_,1).
+pow_bwd(0,_,0).
+pow_bwd(X,Y,Z):- Y>0,Y1 is Y-1, pow_bwd(X,Y1,Z1), Z is X*Z1.
+
+pow_fwd(X,Y,Z1,Z):- Y>0, Y1 is Y-1, Z2=Z1*X, pow_fwd(X,Y1,Z2,Z).
+
+trebuie sa facem wrapping fa tu
+
+cea mai importanta power_find(_,0,Acc,Acc).
+
+backward
+fib(N,X):- N>1, N1 is N-1, N2 is N-2, fib(N1,X1), fib(N1,X2) , X is X1+X2.
+fib(0,0). fib(1,1).
+
+Problema
+X fibonaci de N-1
+X1 fibonaci de N-2
+fib(N,X,Z):- N>1, N1 is N-1, fib(N1,X1,X), Z is X+X1.
+
+wrapper tema
+
+
+
 plain
 plain
-x-matlab
-Indexed 6 files.
-plain
-plain
-plain
-plain
-plain
-plain
-Indexed 6 files.
-File indexing completed.
-Am ajun aici
-Starting file indexing...
-Resetting database...
-Auto-increment reset.
-Database is cleared
-pdf
-x-matlab
-png
-plain
-plain
-plain
-plain
-plain
-plain
-x-matlab
-Indexed 6 files.
-No content found by apache Tika
-plain
-No content found by apache Tika
-plain
-No content found by apache Tika
-plain
-No content found by apache Tika
-plain
-No content found by apache Tika
-plain
-No content found by apache Tika
+reading text file: D:\Prolog labs\Lab4\4.txt
+
+daca avem append(L1,L2,R),! o sa dea prima solutie si atat
+Daca vrem sa spargem in bucati cu marimi predefinite de ex L1 sa aiba 2 elemente
+append(L1,L2,R), length(L1,2).!! foarte important
+
 plain
 Indexed 6 files.
 File indexing completed.

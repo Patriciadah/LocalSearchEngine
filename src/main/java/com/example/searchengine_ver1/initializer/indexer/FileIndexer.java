@@ -61,6 +61,7 @@ public class FileIndexer {
         DebugUtils.writeInFile("Indexed " + files.size() + " files.");
         for (File file : files) {
             try {
+                //Metadata metadata = FileUtils.extractMetadata(file);
                 // Extract text content using Apache Tika
                 String content = FileUtils.extractText(file);
                 if(!content.isEmpty())
@@ -68,7 +69,7 @@ public class FileIndexer {
                 else
                     DebugUtils.writeInFile("No content found by apache Tika");
                 // Extract metadata
-                Metadata metadata = FileUtils.extractMetadata(file);
+
 
                 // Read file attributes
                 BasicFileAttributes attrs = Files.readAttributes(file.toPath(), BasicFileAttributes.class);
