@@ -20,16 +20,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.example.searchengine_ver1.core.logger.IndexingLogger;
+
 @Service
 public class FileIndexer {
 
     private final FileCrawler fileCrawler;
     private final FileIndexRepository fileIndexRepository;
+    private final IndexingLogger indexingLogger;
 
     @Autowired
-    public FileIndexer(FileCrawler fileCrawler, FileIndexRepository fileIndexRepository) {
+    public FileIndexer(FileCrawler fileCrawler, FileIndexRepository fileIndexRepository,IndexingLogger indexingLogger) {
         this.fileCrawler = fileCrawler;
         this.fileIndexRepository = fileIndexRepository;
+        this.indexingLogger=indexingLogger;
     }
     //TODO implement multiple line comment for class and methods
     /**
@@ -53,7 +57,10 @@ public class FileIndexer {
             // TODO inform for code robustness
             DebugUtils.writeInFile("Something went wong with FileCrawler");
         }
-
+        int totalFiles = files != null ? files.size() : 0;
+        int ignoredFiles = 0;
+        int indexedFiles = 0;
+        List<String> errorLogs = new ArrayList<>();
         /*
         * Maps SQL responses to FileIndex model objects
         * */
@@ -69,7 +76,9 @@ public class FileIndexer {
                 if(!content.isEmpty())
                     DebugUtils.writeInFile(content);
                 else
-                    DebugUtils.writeInFile("No content found by apache Tika");
+                {DebugUtils.writeInFile("No content found by apache Tika");
+                ignoredFiles++;
+                }
                 // Extract metadata
 
 
@@ -89,7 +98,9 @@ public class FileIndexer {
                 );
 
                 fileIndexes.add(fileIndex);
+                indexedFiles++;
             } catch (Exception e) {
+                errorLogs.add("Error indexing file: " + file.getAbsolutePath() + " - " + e.getMessage());
                 System.err.println("Error indexing file: " + file.getAbsolutePath() + " - " + e.getMessage());
             }
         }
@@ -99,6 +110,7 @@ public class FileIndexer {
 
         }
         DebugUtils.writeInFile("Indexed " + fileIndexes.size() + " files.");
+        indexingLogger.generateReport(totalFiles, indexedFiles, ignoredFiles, errorLogs);
     }
 
     public void updateIndex(String rootDirectory) {
