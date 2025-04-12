@@ -12,18 +12,20 @@ public class FileIndex {
     private String fileType;
     private String fileContent;
     private LocalDateTime indexedAt;
+    private Double score;
 
     public FileIndex() {}
 
-    public FileIndex(Long id, String fileName, String filePath, String fileType, String fileContent, LocalDateTime indexedAt) {
+    public FileIndex(Long id, String fileName, String filePath, String fileType, String fileContent, LocalDateTime indexedAt,Double score) {
         this.id = id;
         this.fileName = fileName;
         this.filePath = filePath;
         this.fileType = fileType;
         this.fileContent = fileContent;
         this.indexedAt = indexedAt;
+        this.score=score;
     }
-
+    public Double getScore(){return this.score;}
     public Long getId() {
         return id;
     }

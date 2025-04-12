@@ -20,7 +20,8 @@ public class FileIndexRowMapper implements RowMapper<FileIndex> {
                 rs.getString("file_path"),
                 rs.getString("file_type"),
                 rs.getString("file_content"),
-                rs.getTimestamp("indexed_at").toLocalDateTime() // I didn't know this existed
+                rs.getTimestamp("indexed_at").toLocalDateTime(), // I didn't know this existed
+                rs.getDouble("score")
         );
     }
 }

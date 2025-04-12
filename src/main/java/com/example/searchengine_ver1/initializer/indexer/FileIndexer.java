@@ -87,14 +87,18 @@ public class FileIndexer {
                 LocalDateTime indexedAt = Instant.ofEpochMilli(attrs.creationTime().toMillis())
                         .atZone(ZoneId.systemDefault())
                         .toLocalDateTime();
-
+                /*
+                * Placeholder for score calculation
+                * */
+                Double score=0.0;
                 FileIndex fileIndex = new FileIndex(
                         null, // Auto-generated ID
                         file.getName(),
                         file.getAbsolutePath(),
                         FileUtils.getFileExtension(file),
                         content,
-                        indexedAt
+                        indexedAt,
+                        score
                 );
 
                 fileIndexes.add(fileIndex);
@@ -139,6 +143,9 @@ public class FileIndexer {
 
                 FileIndex existingFile = existingFileMap.get(file.getAbsolutePath());
 
+                /*
+                * Also a placeholder for score
+                * */
                 if (existingFile == null) {
                     // New file - Insert
                     FileIndex newFile = new FileIndex(
@@ -147,7 +154,8 @@ public class FileIndexer {
                             file.getAbsolutePath(),
                             FileUtils.getFileExtension(file),
                             FileUtils.extractText(file),
-                            lastModified
+                            lastModified,
+                            0.0
                     );
                     newFiles.add(newFile);
                 } else if (existingFile.getIndexedAt().isBefore(lastModified)) {

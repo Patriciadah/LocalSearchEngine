@@ -1,5 +1,6 @@
 package com.example.searchengine_ver1.initializer.scheduler;
 
+import com.example.searchengine_ver1.core.utils.DebugUtils;
 import com.example.searchengine_ver1.initializer.indexer.FileIndexer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,7 +21,7 @@ public class IndexUpdaterScheduler {
 
     @Scheduled(fixedRate = 3600000) // Runs every hour
     public void scheduledIndexUpdate() {
-        System.out.println("Running scheduled index update...");
+        DebugUtils.writeInFile("Running");
         fileIndexer.updateIndex(rootDirectory);
     }
 }

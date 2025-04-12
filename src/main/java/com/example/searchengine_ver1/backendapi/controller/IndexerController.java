@@ -24,7 +24,6 @@ public class IndexerController {
 
     @PostMapping("/initialize")
     public ResponseEntity<String> reindex(@RequestParam String directory) {
-        writeInFile("Am ajun aici");
         initializerService.initialize(directory);
         return ResponseEntity.ok("Reindexing started for directory: " + directory);
     }
