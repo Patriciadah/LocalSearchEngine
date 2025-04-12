@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Comparator;
 import java.util.Scanner;
 
 @Service
@@ -19,6 +21,7 @@ public class SearchService implements CommandLineRunner {
     public void searchAndDisplayFiles(String query) {
         List<FileIndex> results = fileIndexRepository.searchFiles(query);
 
+        results.sort(Comparator.comparing(FileIndex::getScore).reversed());
         if (results.isEmpty()) {
             System.out.println("No matches found for: " + query);
             return;

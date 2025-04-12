@@ -3,6 +3,7 @@ package com.example.searchengine_ver1.initializer.indexer;
 import com.example.searchengine_ver1.core.model.FileIndex;
 import com.example.searchengine_ver1.core.repository.FileIndexRepository;
 import com.example.searchengine_ver1.core.utils.DebugUtils;
+import com.example.searchengine_ver1.core.utils.ScoreUtils;
 import com.example.searchengine_ver1.initializer.crawler.FileCrawler;
 import com.example.searchengine_ver1.core.utils.FileUtils;
 import org.apache.tika.metadata.Metadata;
@@ -87,10 +88,8 @@ public class FileIndexer {
                 LocalDateTime indexedAt = Instant.ofEpochMilli(attrs.creationTime().toMillis())
                         .atZone(ZoneId.systemDefault())
                         .toLocalDateTime();
-                /*
-                * Placeholder for score calculation
-                * */
-                Double score=0.0;
+
+                Double score= ScoreUtils.computeScore(file,content,indexedAt);
                 FileIndex fileIndex = new FileIndex(
                         null, // Auto-generated ID
                         file.getName(),
@@ -143,11 +142,11 @@ public class FileIndexer {
 
                 FileIndex existingFile = existingFileMap.get(file.getAbsolutePath());
 
-                /*
-                * Also a placeholder for score
-                * */
+
                 if (existingFile == null) {
                     // New file - Insert
+                    String content = FileUtils.extractText(file);
+                    Double score= ScoreUtils.computeScore(file,content,lastModified);
                     FileIndex newFile = new FileIndex(
                             null,
                             file.getName(),
@@ -155,7 +154,7 @@ public class FileIndexer {
                             FileUtils.getFileExtension(file),
                             FileUtils.extractText(file),
                             lastModified,
-                            0.0
+                            score
                     );
                     newFiles.add(newFile);
                 } else if (existingFile.getIndexedAt().isBefore(lastModified)) {

@@ -27,7 +27,7 @@ public class FileIndexRepository {
  * @param files list of files resulting from file crawling
  * */
     public void insertAll(List<FileIndex> files) {
-        String sql = "INSERT INTO file_index (file_name, file_path, file_type, file_content, indexed_at) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO file_index (file_name, file_path, file_type, file_content, indexed_at,score) VALUES (?, ?, ?, ?, ?, ?)";
 
         List<Object[]> batchArgs = new ArrayList<>();
         for (FileIndex file : files) {
@@ -36,7 +36,8 @@ public class FileIndexRepository {
                     file.getFilePath(),
                     file.getFileType(),
                     file.getFileContent(),
-                    file.getIndexedAt()
+                    file.getIndexedAt(),
+                    file.getScore()
             });
         }
 
@@ -44,7 +45,7 @@ public class FileIndexRepository {
     }
     public void updateAll(List<FileIndex> files) {
         String sql = "UPDATE file_index " +
-                "SET file_name = ?, file_type = ?, file_content = ?, indexed_at = ? " +
+                "SET file_name = ?, file_type = ?, file_content = ?, indexed_at = ?, score= ?" +
                 "WHERE file_path = ?";
 
         List<Object[]> batchArgs = new ArrayList<>();
@@ -54,6 +55,7 @@ public class FileIndexRepository {
                     file.getFileType(),
                     file.getFileContent(),
                     file.getIndexedAt(),
+                    file.getScore(),
                     file.getFilePath() // WHERE condition
             });
         }
