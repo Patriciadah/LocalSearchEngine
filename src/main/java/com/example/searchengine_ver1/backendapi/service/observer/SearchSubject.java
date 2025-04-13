@@ -1,4 +1,4 @@
-package com.example.searchengine_ver1.backendapi.service;
+package com.example.searchengine_ver1.backendapi.service.observer;
 
 import org.springframework.stereotype.Service;
 
@@ -7,16 +7,24 @@ import java.util.List;
 @Service
 public class SearchSubject {
     List<SearchObserver> observers;
-
     public SearchSubject(){
         this.observers= new ArrayList<>();
     }
-    public List<String> search(String query) {
+    public void notifyObservers(String query) {
         // Notify all observers
         observers.forEach(observer -> observer.onSearch(query));
 
-        // Perform actual search logic here
-        // For now, return dummy result
-        return List.of("Result 1 for " + query, "Result 2 for " + query);
+    }
+    public void registerObserver(SearchObserver o){
+        observers.add(o);
+    }
+    public void removeObserver(SearchObserver o){
+        int i = observers.indexOf(o);
+        if (i>= 0){
+            observers.remove(i);
+        }
+    }
+    public void useQuery(String query){
+        notifyObservers(query);
     }
 }

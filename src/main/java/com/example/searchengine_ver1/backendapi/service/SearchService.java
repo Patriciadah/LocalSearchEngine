@@ -1,12 +1,12 @@
 package com.example.searchengine_ver1.backendapi.service;
 
+import com.example.searchengine_ver1.backendapi.service.observer.SearchSubject;
 import com.example.searchengine_ver1.core.model.FileIndex;
 import com.example.searchengine_ver1.core.repository.FileIndexRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -14,9 +14,12 @@ import java.util.Scanner;
 @Service
 public class SearchService implements CommandLineRunner {
     FileIndexRepository fileIndexRepository;
+    SearchSubject searchSubject;
+
     @Autowired
-    public SearchService(FileIndexRepository fileIndexRepository){
+    public SearchService(FileIndexRepository fileIndexRepository,SearchSubject searchSubject){
         this.fileIndexRepository=fileIndexRepository;
+        this.searchSubject=searchSubject;
     }
     public void searchAndDisplayFiles(String query) {
         List<FileIndex> results = fileIndexRepository.searchFiles(query);
