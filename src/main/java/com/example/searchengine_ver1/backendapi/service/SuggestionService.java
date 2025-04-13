@@ -17,23 +17,21 @@ public class SuggestionService {
         this.popularQueryTracker = popularQueryTracker;
     }
 
-    public List<String> suggestPopular(String partialQuery) {
-        String lower = partialQuery.toLowerCase();
+    public List<String> suggestPopular() {
+
         return popularQueryTracker.getTop(5).keySet().stream()
-                .filter(q -> q.startsWith(lower))
                 .limit(5)
                 .toList();
     }
-    public List<String> suggestMostRecent(String partialQuery) {
-        String lower = partialQuery.toLowerCase();
+    public List<String> suggestMostRecent() {
+
         return historyTracker.getRecentQueries().stream()
-                .filter(q -> q.startsWith(lower))
                 .limit(5)
                 .toList();
     }
-    public String suggest(String partialQuery){
-        List<String> popularSuggestions = suggestPopular(partialQuery);
-        List<String> recentSuggestions = suggestMostRecent(partialQuery);
+    public String suggest(){
+        List<String> popularSuggestions = suggestPopular();
+        List<String> recentSuggestions = suggestMostRecent();
 
         String popularString = popularSuggestions.isEmpty()
                 ? ""
@@ -44,7 +42,7 @@ public class SuggestionService {
                 : "Recent suggestions: " + String.join(", ", recentSuggestions);
 
         if (popularString.isEmpty() && recentString.isEmpty()) {
-            return "No suggestions found for '" + partialQuery + "'.";
+            return "No suggestions found yet.'";
         } else if (popularString.isEmpty()) {
             return recentString;
         } else if (recentString.isEmpty()) {

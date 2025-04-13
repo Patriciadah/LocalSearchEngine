@@ -1,18 +1,19 @@
 package com.example.searchengine_ver1.backendapi.service.observer;
 
+import com.example.searchengine_ver1.backendapi.service.subject.SuggestQuerySubject;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
 
 @Component
-public class HistoryTracker implements SearchObserver {
+public class HistoryTracker implements SuggestQueryObserver {
 
     private final List<String> history = new LinkedList<>();
-    private final SearchSubject searchSubject;
-    public HistoryTracker(SearchSubject subject){
-        this.searchSubject=subject;
-        this.searchSubject.registerObserver(this);
+    private final SuggestQuerySubject suggestQuerySubject;
+    public HistoryTracker(SuggestQuerySubject subject){
+        this.suggestQuerySubject=subject;
+        this.suggestQuerySubject.registerObserver(this);
     }
 
     @Override

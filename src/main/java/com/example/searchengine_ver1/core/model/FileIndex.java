@@ -73,4 +73,5 @@ public class FileIndex {
     public void setIndexedAt(LocalDateTime indexedAt) {
         this.indexedAt = indexedAt;
     }
+    public void setScore(Double score){this.score=score;}
 }

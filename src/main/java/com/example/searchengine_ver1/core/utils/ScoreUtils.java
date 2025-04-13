@@ -40,4 +40,5 @@ public class ScoreUtils {
         // Optional: clamp score
         return Math.min(score, MAX_SCORE);
     }
+
 }

@@ -1,6 +1,7 @@
 package com.example.searchengine_ver1.backendapi.service.observer;
 
 import com.example.searchengine_ver1.backendapi.service.SearchService;
+import com.example.searchengine_ver1.backendapi.service.subject.SuggestQuerySubject;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -9,13 +10,13 @@ import java.util.stream.Collectors;
 import java.util.LinkedHashMap;
 
 @Component
-public class PopularQueryTracker implements SearchObserver {
+public class PopularQueryTracker implements SuggestQueryObserver {
 
     private final Map<String, Integer> queryFrequency = new ConcurrentHashMap<>();
-    private final SearchSubject searchSubject;
-    public PopularQueryTracker(SearchSubject s){
-        this.searchSubject=s;
-        this.searchSubject.registerObserver(this);
+    private final SuggestQuerySubject suggestQuerySubject;
+    public PopularQueryTracker(SuggestQuerySubject s){
+        this.suggestQuerySubject=s;
+        this.suggestQuerySubject.registerObserver(this);
     }
     @Override
     public void onSearch(String query) {
