@@ -1,5 +1,6 @@
 package com.example.searchengine_ver1.initializer.indexer;
 
+import com.example.searchengine_ver1.core.logger.IndexingLoggerFactory;
 import com.example.searchengine_ver1.core.model.FileIndex;
 import com.example.searchengine_ver1.core.repository.FileIndexRepository;
 import com.example.searchengine_ver1.core.utils.DebugUtils;
@@ -8,6 +9,7 @@ import com.example.searchengine_ver1.initializer.crawler.FileCrawler;
 import com.example.searchengine_ver1.core.utils.FileUtils;
 import org.apache.tika.metadata.Metadata;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -31,10 +33,10 @@ public class FileIndexer {
     private final IndexingLogger indexingLogger;
 
     @Autowired
-    public FileIndexer(FileCrawler fileCrawler, FileIndexRepository fileIndexRepository,IndexingLogger indexingLogger) {
+    public FileIndexer(FileCrawler fileCrawler, FileIndexRepository fileIndexRepository, @Value("${report.format:PLAIN}") String format) {
         this.fileCrawler = fileCrawler;
         this.fileIndexRepository = fileIndexRepository;
-        this.indexingLogger=indexingLogger;
+        this.indexingLogger= IndexingLoggerFactory.createLogger(format);
     }
     //TODO implement multiple line comment for class and methods
     /**
