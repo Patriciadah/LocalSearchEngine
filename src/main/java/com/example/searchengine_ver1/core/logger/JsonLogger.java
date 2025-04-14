@@ -1,6 +1,7 @@
 package com.example.searchengine_ver1.core.logger;
 
 import com.example.searchengine_ver1.core.utils.DebugUtils;
+import com.example.searchengine_ver1.core.utils.LoggerUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.HashMap;
@@ -20,9 +21,9 @@ public class JsonLogger implements IndexingLogger {
 
         try {
             String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(report);
-            DebugUtils.writeInFile(json);
+            LoggerUtils.writeInFile(json);
         } catch (Exception e) {
-            DebugUtils.writeInFile("Error generating JSON report: " + e.getMessage());
+            LoggerUtils.writeInFile("Error generating JSON report: " + e.getMessage());
         }
     }
 }

@@ -1,0 +1,34 @@
+{
+  "indexedFiles" : 19,
+  "ignoredFiles" : 10,
+  "totalFiles" : 19,
+  "errors" : [ ]
+}
+---- Indexing Report ----
+Total files found: 19
+Files indexed: 19
+Files ignored: 10
+---- Indexing Report ----
+Total files found: 8
+Files indexed: 8
+Files ignored: 3
+---- Indexing Report ----
+Total files found: 8
+Files indexed: 8
+Files ignored: 3
+---- Indexing Report ----
+Total files found: 8
+Files indexed: 8
+Files ignored: 3
+---- Indexing Report ----
+Total files found: 8
+Files indexed: 8
+Files ignored: 3
+---- Indexing Report ----
+Total files found: 8
+Files indexed: 8
+Files ignored: 3
+---- Indexing Report ----
+Total files found: 8
+Files indexed: 8
+Files ignored: 0

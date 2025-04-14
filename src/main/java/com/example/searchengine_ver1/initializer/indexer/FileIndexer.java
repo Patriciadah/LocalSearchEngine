@@ -77,9 +77,9 @@ public class FileIndexer {
                 // Extract text content using Apache Tika
                 String content = FileUtils.extractText(file);
                 if(!content.isEmpty())
-                    DebugUtils.writeInFile(content);
+                    DebugUtils.writeContent(content);
                 else
-                {DebugUtils.writeInFile("No content found by apache Tika");
+                {DebugUtils.writeContent("No content found by apache Tika "+FileUtils.getFileExtension(file));
                 ignoredFiles++;
                 }
                 // Extract metadata

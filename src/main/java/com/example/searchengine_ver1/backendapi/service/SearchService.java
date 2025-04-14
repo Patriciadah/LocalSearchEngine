@@ -12,7 +12,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Comparator;
 import java.util.Scanner;
 
 @Service
@@ -36,14 +35,10 @@ public class SearchService implements CommandLineRunner {
         this.rankFilesSubject=rankFilesSubject;
         this.popularFilesTracker=popularFilesTracker;
         this.rankingService= new RankingService(popularFilesTracker);
-        configureSuggestSubject();
         configureRankingSubject();
 
     }
-    private void configureSuggestSubject(){
-        suggestQuerySubject.registerObserver(historyTracker);
-        suggestQuerySubject.registerObserver(popularQueryTracker);
-    }
+
     private void configureRankingSubject(){
         rankFilesSubject.registerObserver(popularFilesTracker);
     }

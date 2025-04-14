@@ -42,7 +42,7 @@ public class SuggestionService {
                 : "Recent suggestions: " + String.join(", ", recentSuggestions);
 
         if (popularString.isEmpty() && recentString.isEmpty()) {
-            return "No suggestions found yet.'";
+            return "No suggestions found yet.";
         } else if (popularString.isEmpty()) {
             return recentString;
         } else if (recentString.isEmpty()) {

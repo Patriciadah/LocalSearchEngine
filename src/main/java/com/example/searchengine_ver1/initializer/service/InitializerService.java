@@ -23,6 +23,7 @@ public class InitializerService {
 
     // Trigger manually when needed (e.g., from an API endpoint)
     public void initialize(String rootDirectory) {
+        DebugUtils.clearContent();
         DebugUtils.writeInFile("Starting file indexing...");
         fileIndexer.indexFiles(rootDirectory);
         DebugUtils.writeInFile("File indexing completed.");

@@ -13,6 +13,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Set;
 
 public class FileUtils {
 
@@ -22,11 +23,11 @@ public class FileUtils {
     public static String extractText(File file) {
         // If it's a .txt file, read manually
         if (getFileExtension(file).equals("plain")) {
-            try { DebugUtils.writeInFile("reading text file: " + file.getAbsolutePath() + "\n");
+            try { DebugUtils.writeContent("reading text file: " + file.getAbsolutePath() + "\n");
                 return Files.readString(Paths.get(file.getAbsolutePath()), StandardCharsets.UTF_8);
             } catch (IOException e) {
                 System.err.println("Error reading text file: " + file.getAbsolutePath()+ "\n");
-                DebugUtils.writeInFile("Error reading text file: " + file.getAbsolutePath());
+                DebugUtils.writeContent("Error reading text file: " + file.getAbsolutePath());
                 return "";
             }
         }
@@ -39,6 +40,7 @@ public class FileUtils {
             ParseContext context = new ParseContext();
 
             parser.parse(stream, handler, metadata, context);
+            DebugUtils.writeContent("reading content from " + file.getAbsolutePath() + "\n");
             return handler.toString();
         } catch (Exception e) {
             System.err.println("Error extracting content from: " + file.getAbsolutePath());
@@ -60,6 +62,7 @@ public class FileUtils {
             System.err.println("Error extracting metadata from: " + file.getAbsolutePath());
             return new Metadata();
         }
+
     }
 
     /**

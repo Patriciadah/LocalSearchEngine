@@ -1,0 +1,393 @@
+reading content from C:\Users\Asus\Desktop\See\EY.txt
+
+PE@!HxG433M4hTyt
+
+reading content from C:\Users\Asus\Desktop\See\FileIndexRowMapper.java
+
+package com.example.searchengine_ver1.backendapi.repository;
+
+import com.example.searchengine_ver1.model.FileIndex;
+import org.springframework.jdbc.core.RowMapper;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class FileIndexRowMapper implements RowMapper<FileIndex> {
+    @Override
+    public FileIndex mapRow(ResultSet rs, int rowNum) throws SQLException {
+        return new FileIndex(
+                rs.getLong("id"),
+                rs.getString("file_name"),
+                rs.getString("file_path"),
+                rs.getString("file_type"),
+                rs.getString("file_content"),
+                rs.getTimestamp("indexed_at").toLocalDateTime()
+        );
+    }
+}
+
+
+reading content from C:\Users\Asus\Desktop\See\FileIndexService.java
+
+package com.example.searchengine_ver1.backendapi.service;
+
+import com.example.searchengine_ver1.model.FileIndex;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class FileIndexService {
+    private final FileIndexRepository fileIndexRepository;
+
+    @Autowired
+    public FileIndexService(FileIndexRepository fileIndexRepository) {
+        this.fileIndexRepository = fileIndexRepository;
+    }
+
+    public void indexFiles(List<FileIndex> files) {
+        fileIndexRepository.saveAll(files);
+    }
+
+    public List<FileIndex> searchFiles(String query) {
+        return fileIndexRepository.searchFiles(query);
+    }
+}
+
+
+reading content from C:\Users\Asus\Desktop\See\Letter of Intent.pdf
+
+
+Letter of Intent 
+
+For Participation in the MHP Internship 
+
+I, Braica Patricia Maria, am a third-year student at the Faculty of Automation and Computers, within the 
+
+Technical University of Cluj-Napoca, specializing in Computer Science and Information Technology in 
+
+English. I wish to apply for the MHP internship in Cluj-Napoca. 
+
+I would like to bring to your attention the reasons why I believe I am a strong candidate for this project. 
+
+Firstly, I aim to bring innovation and contribute to improving the results of MHP. I feel well-prepared to 
+
+engage in the complex field of Java programming. My qualifications are supported by the excellent 
+
+results I have achieved in relevant subjects throughout my three years of study. 
+
+Secondly, I want to develop my practical skills in the technical field, particularly in software solutions 
+
+implementation. I believe this project will provide me with the opportunity to learn from professionals 
+
+and apply theoretical knowledge in practice. I am highly motivated by the chance to work in an 
+
+interdisciplinary team and contribute to the development of a real-world project. 
+
+It is essential to mention that I have already worked with this type of technology in Web Development 
+
+during the “Software Engineering” course, where I developed a project on restaurant recommendation 
+
+systems using Google Location and Weather APIs, implemented with Java Spring Boot. 
+
+Additionally, I have completed the "Object-Oriented Programming (OOP) in Java and C++" course, where 
+
+I worked on a mandatory project that strengthened my knowledge of OOP-based application 
+
+development. 
+
+The "SQL Programming" course provided me with fundamental skills in database management, which 
+
+are crucial for any project involving data storage and manipulation. 
+
+Throughout my studies, I have taken relevant courses that have equipped me with essential skills in 
+
+computer science and applied technologies. For example, through the "Fundamental Algorithms and 
+
+Data Structures in C" course, I learned efficient programming techniques for developing high-
+
+performance solutions. 
+
+During the "AI Technologies in Python" course, my teammates and I implemented complex AI solutions 
+
+such as theorem proving and the DPLL algorithm. 
+
+My objectives are to expand my experience in advanced technologies, particularly in web development, 
+
+while remaining open to exploring other IT specializations. Through this project, I wish to gain insight 
+
+into different fields where I can contribute and discover what best suits my skills and interests. My goal 
+
+is to acquire valuable knowledge and experiment with various types of projects to eventually become an 
+
+expert in a specific domain or position, based on the skills and passions I develop along the way. 
+
+If you consider that my motivation and expertise make me a suitable candidate for this project, I am 
+
+available for an interview with the selection committee. Thank you for your time and consideration. 
+
+Sincerely, 
+
+Braica Patricia Maria 
+
+
+
+reading content from C:\Users\Asus\Desktop\See\Letter of IntentEng.docx
+
+Letter of Intent
+For Participation in the MHP Internship
+I, Braica Patricia Maria, am a third-year student at the Faculty of Automation and Computers, within the Technical University of Cluj-Napoca, specializing in Computer Science and Information Technology in English. I wish to apply for the MHP internship in Cluj-Napoca.
+I would like to bring to your attention the reasons why I believe I am a strong candidate for this project.
+Firstly, I aim to bring innovation and contribute to improving the results of MHP. I feel well-prepared to engage in the complex field of Java programming. My qualifications are supported by the excellent results I have achieved in relevant subjects throughout my three years of study.
+Secondly, I want to develop my practical skills in the technical field, particularly in software solutions implementation. I believe this project will provide me with the opportunity to learn from professionals and apply theoretical knowledge in practice. I am highly motivated by the chance to work in an interdisciplinary team and contribute to the development of a real-world project.
+It is essential to mention that I have already worked with this type of technology in Web Development during the “Software Engineering” course, where I developed a project on restaurant recommendation systems using Google Location and Weather APIs, implemented with Java Spring Boot.
+Additionally, I have completed the "Object-Oriented Programming (OOP) in Java and C++" course, where I worked on a mandatory project that strengthened my knowledge of OOP-based application development.
+The "SQL Programming" course provided me with fundamental skills in database management, which are crucial for any project involving data storage and manipulation.
+Throughout my studies, I have taken relevant courses that have equipped me with essential skills in computer science and applied technologies. For example, through the "Fundamental Algorithms and Data Structures in C" course, I learned efficient programming techniques for developing high-performance solutions.
+During the "AI Technologies in Python" course, my teammates and I implemented complex AI solutions such as theorem proving and the DPLL algorithm.
+My objectives are to expand my experience in advanced technologies, particularly in web development, while remaining open to exploring other IT specializations. Through this project, I wish to gain insight into different fields where I can contribute and discover what best suits my skills and interests. My goal is to acquire valuable knowledge and experiment with various types of projects to eventually become an expert in a specific domain or position, based on the skills and passions I develop along the way.
+If you consider that my motivation and expertise make me a suitable candidate for this project, I am available for an interview with the selection committee. Thank you for your time and consideration.
+Sincerely,
+Braica Patricia Maria
+
+reading content from C:\Users\Asus\Desktop\See\lisp.l
+
+/* lisp.l - Analizor lexical pentru microinterpretorul Lisp */
+%{
+#include "y.tab.h"
+%}
+
+%%
+\s+                 ; /* Ignoră spațiile albe */
+\(                  return '(';
+\)                  return ')';
+CONS                return CONS;
+CAR                 return CAR;
+CDR                 return CDR;
+APPEND              return APPEND;
+[0-9]+              { yylval.ival = atoi(yytext); return NUMBER; }
+\'\([0-9 ]+\)      { yylval.sval = strdup(yytext); return LIST; }
+.                   ;
+%%
+
+int yywrap() { return 1; }
+
+
+
+reading content from C:\Users\Asus\Desktop\See\lisp.y
+
+/* lisp.y - Analizor sintactic pentru microinterpretorul Lisp */
+%{
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct list {
+    int value;
+    struct list *next;
+} list;
+
+list *cons(int val, list *lst) {
+    list *node = (list *)malloc(sizeof(list));
+    node->value = val;
+    node->next = lst;
+    return node;
+}
+
+int car(list *lst) { return lst ? lst->value : 0; }
+list *cdr(list *lst) { return lst ? lst->next : NULL; }
+list *append(list *l1, list *l2) {
+    if (!l1) return l2;
+    list *head = l1;
+    while (l1->next) l1 = l1->next;
+    l1->next = l2;
+    return head;
+}
+
+void print_list(list *lst) {
+    printf("(");
+    while (lst) {
+        printf("%d ", lst->value);
+        lst = lst->next;
+    }
+    printf(")\n");
+}
+%}
+
+%union {
+    int ival;
+    list *lst;
+}
+
+%token <ival> NUMBER
+%token CONS CAR CDR APPEND
+%type <lst> form i_form l_form enum
+
+%%
+form: i_form  { $$ = $1; print_list($$); }
+    | l_form  { $$ = $1; print_list($$); }
+    ;
+
+i_form: '(' i_command ')' { $$ = $2; }
+      | NUMBER { $$ = cons($1, NULL); }
+      ;
+
+l_form: '(' l_command ')' { $$ = $2; }
+      | enum ')' { $$ = $1; }
+      ;
+
+i_command: CAR l_form { $$ = cons(car($2), NULL); }
+         | '+' form i_form { $$ = cons(car($2) + car($3), NULL); }
+         ;
+
+l_command: CDR l_form { $$ = cdr($2); }
+         | CONS i_form l_form { $$ = cons(car($2), $3); }
+         | APPEND l_form l_form { $$ = append($2, $3); }
+         ;
+
+enum: NUMBER enum { $$ = cons($1, $2); }
+     | NUMBER { $$ = cons($1, NULL); }
+     ;
+
+file: file form '\n' | file '\n' | /* empty */ ;
+%%
+
+int main() {
+    yyparse();
+    return 0;
+}
+
+void yyerror(const char *msg) {
+    fprintf(stderr, "Error: %s\n", msg);
+}
+
+
+reading content from C:\Users\Asus\Desktop\See\Microsoft Office Word Tabele.pptx
+
+Tabele,randuri, coloane definiție formală
+Un tabel este o structură de date organizată în linii (rânduri) și coloane, utilizată pentru a stoca, aranja și prezenta informațiile într-un mod clar și accesibil.
+
+Linie (sau rând) – reprezintă un set de date organizate pe orizontală într-un tabel. Fiecare linie conține informații despre o anumită entitate sau înregistrare.
+
+Coloană – reprezintă un set de date organizate pe verticală într-un tabel. Fiecare coloană conține un anumit tip de informație pentru toate înregistrările (liniile) tabelului.
+
+
+
+
+Microsoft Office Word
+Tabele 
+Citate de la experți:
+
+“Folosirea tabelelor în Microsoft Word este ca și cum ai încerca să strunești niște pisici – tocmai când crezi că e perfect, ceva se schimbă.” 
+
+“Tabelele din Microsoft Word sunt ca relațiile – complicate, imprevizibile și, uneori, trebuie să o iei de la capăt.”
+
+
+
+
+Ce vom învăța azi?
+Inserarea în tabel
+Desenarea unui tabel
+Lucru în tabel
+Operații în tabel
+
+
+
+Inserarea unui tabel
+Ce metode știți voi?
+
+Insert -> Table -> Insert table
+Insert -> Table ->Selectam cu cursorul visual câte rânduri și câte coloane avem
+Insert -> Table ->Draw Table (o experiență interesantă)
+
+
+Prima modalitate
+
+
+
+A doua modalitate
+
+
+
+A treia modalitate
+
+Despre butoanele de la Draw Table:
+Eraser
+Shading color
+Line style
+Line weight
+Pen Color
+
+
+Formatarea datelor din tabel
+
+
+
+
+Sortarea și operațiile matematice
+
+
+
+
+Operații în tabel- adaugarea de randuri si coloane, ștergerea din tabel
+
+
+
+
+Desenarea unui tabel-Utilizarea stilurilor
+
+
+
+Merging cells- Unirea celulelor
+
+Cum se face atunci împărțirea celulelor? Dar a tabelelor?
+
+
+
+Mențiuni și comenzi interesante
+
+
+Dimensiunile coloanelor și a rândurilor(1)
+
+
+
+Dimensiunile coloanelor și a rândurilor(2)
+
+
+
+
+image1.png
+
+image2.png
+
+image3.png
+
+image4.png
+
+image5.png
+
+image6.png
+
+image7.png
+
+image8.png
+
+image9.png
+
+image10.png
+
+image11.png
+
+image12.png
+
+image13.png
+
+image14.png
+
+image15.png
+
+image16.png
+
+
+

@@ -18,10 +18,12 @@ public class IndexUpdaterScheduler {
     public IndexUpdaterScheduler(FileIndexer fileIndexer) {
         this.fileIndexer = fileIndexer;
     }
-
-    @Scheduled(fixedRate = 3600000) // Runs every hour
+/*
+    @Scheduled(fixedRate = 360000000) // Runs every hour
     public void scheduledIndexUpdate() {
         DebugUtils.writeInFile("Running");
         fileIndexer.updateIndex(rootDirectory);
     }
+
+ */
 }
