@@ -40,3 +40,11 @@ Files ignored: 0
 Total files found: 17
 Files indexed: 17
 Files ignored: 0
+---- Indexing Report ----
+Total files found: 17
+Files indexed: 17
+Files ignored: 0
+---- Indexing Report ----
+Total files found: 20
+Files indexed: 20
+Files ignored: 0
