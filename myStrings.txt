@@ -37,3 +37,1164 @@ vnd.openxmlformats-officedocument.presentationml.presentation
 vnd.openxmlformats-officedocument.presentationml.presentation
 Indexed 8 files.
 File indexing completed.
+pdf
+pdf
+pdf
+pdf
+jpeg
+zip
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+zip
+msword
+pdf
+pdf
+msword
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+jpeg
+jpeg
+jpeg
+jpeg
+zip
+zip
+zip
+zip
+msword
+msword
+msword
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+msword
+msword
+msword
+zip
+zip
+zip
+zip
+msword
+msword
+msword
+msword
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+msword
+msword
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+vnd.openxmlformats-officedocument.wordprocessingml.document
+csv; charset=ISO-8859-1; delimiter=comma
+plain; charset=ISO-8859-1
+pdf
+pdf
+pdf
+plain; charset=ISO-8859-1
+plain; charset=windows-1252
+plain; charset=windows-1252
+zip
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+zip
+zip
+zip
+pdf
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=UTF-8
+plain; charset=windows-1252
+vnd.oasis.opendocument.text
+vnd.openxmlformats-officedocument.presentationml.presentation
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+csv; charset=UTF-8; delimiter=comma
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+csv; charset=ISO-8859-1; delimiter=comma
+csv; charset=ISO-8859-1; delimiter=comma
+csv; charset=ISO-8859-1; delimiter=comma
+csv; charset=ISO-8859-1; delimiter=comma
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+zip
+zip
+zip
+zip
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+pdf
+pdf
+pdf
+pdf
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=UTF-8
+plain; charset=UTF-8
+plain; charset=UTF-8
+plain; charset=UTF-8
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+vnd.oasis.opendocument.text
+vnd.oasis.opendocument.text
+vnd.oasis.opendocument.text
+vnd.oasis.opendocument.text
+vnd.openxmlformats-officedocument.presentationml.presentation
+vnd.openxmlformats-officedocument.presentationml.presentation
+vnd.openxmlformats-officedocument.presentationml.presentation
+vnd.openxmlformats-officedocument.presentationml.presentation
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+csv; charset=UTF-8; delimiter=comma
+csv; charset=UTF-8; delimiter=comma
+csv; charset=UTF-8; delimiter=comma
+csv; charset=UTF-8; delimiter=comma
+pdf
+pdf
+pdf
+pdf
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+zip
+msword
+pdf
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+msword
+msword
+pdf
+pdf
+pdf
+pdf
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+zip
+msword
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+msword
+msword
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+msword
+msword
+msword
+zip
+zip
+zip
+zip
+msword
+msword
+msword
+msword
+pdf
+pdf
+pdf
+pdf
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+zip
+msword
+pdf
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+msword
+msword
+pdf
+pdf
+pdf
+pdf
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+zip
+msword
+pdf
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+msword
+msword
+pdf
+pdf
+pdf
+pdf
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+zip
+msword
+pdf
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+msword
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+vnd.openxmlformats-officedocument.wordprocessingml.document
+csv; charset=ISO-8859-1; delimiter=comma
+plain; charset=ISO-8859-1
+pdf
+pdf
+pdf
+plain; charset=ISO-8859-1
+plain; charset=windows-1252
+plain; charset=windows-1252
+zip
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+zip
+zip
+zip
+pdf
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=UTF-8
+plain; charset=windows-1252
+vnd.oasis.opendocument.text
+vnd.openxmlformats-officedocument.presentationml.presentation
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+csv; charset=UTF-8; delimiter=comma
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+csv; charset=ISO-8859-1; delimiter=comma
+csv; charset=ISO-8859-1; delimiter=comma
+csv; charset=ISO-8859-1; delimiter=comma
+csv; charset=ISO-8859-1; delimiter=comma
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+zip
+zip
+zip
+zip
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+pdf
+pdf
+pdf
+pdf
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=UTF-8
+plain; charset=UTF-8
+plain; charset=UTF-8
+plain; charset=UTF-8
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+vnd.oasis.opendocument.text
+vnd.oasis.opendocument.text
+vnd.oasis.opendocument.text
+vnd.oasis.opendocument.text
+vnd.openxmlformats-officedocument.presentationml.presentation
+vnd.openxmlformats-officedocument.presentationml.presentation
+vnd.openxmlformats-officedocument.presentationml.presentation
+vnd.openxmlformats-officedocument.presentationml.presentation
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+vnd.openxmlformats-officedocument.spreadsheetml.sheet
+csv; charset=UTF-8; delimiter=comma
+csv; charset=UTF-8; delimiter=comma
+csv; charset=UTF-8; delimiter=comma
+csv; charset=UTF-8; delimiter=comma
+pdf
+pdf
+pdf
+pdf
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+zip
+msword
+pdf
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+msword
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=ISO-8859-1
+pdf
+pdf
+pdf
+plain; charset=ISO-8859-1
+plain; charset=windows-1252
+plain; charset=windows-1252
+zip
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+zip
+zip
+zip
+pdf
+pdf
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=UTF-8
+plain; charset=windows-1252
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+plain; charset=ISO-8859-1
+zip
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+zip
+zip
+zip
+zip
+zip
+pdf
+pdf
+pdf
+pdf
+pdf
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=ISO-8859-1
+pdf
+pdf
+pdf
+plain; charset=ISO-8859-1
+plain; charset=windows-1252
+plain; charset=windows-1252
+zip
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+zip
+zip
+zip
+pdf
+pdf
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=UTF-8
+plain; charset=windows-1252
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+zip
+zip
+zip
+zip
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=UTF-8
+plain; charset=UTF-8
+plain; charset=UTF-8
+plain; charset=UTF-8
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=ISO-8859-1
+pdf
+pdf
+pdf
+plain; charset=ISO-8859-1
+plain; charset=windows-1252
+plain; charset=windows-1252
+zip
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+zip
+zip
+zip
+pdf
+pdf
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=UTF-8
+plain; charset=windows-1252
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+plain; charset=ISO-8859-1
+zip
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+zip
+zip
+zip
+zip
+zip
+pdf
+pdf
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+zip
+msword
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+msword
+msword
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+msword
+msword
+msword
+zip
+zip
+zip
+zip
+msword
+msword
+msword
+msword
+Resetting database...
+Auto-increment reset.
+Database is cleared
+pdf
+pdf
+pdf
+pdf
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+zip
+msword
+Indexed 17 files.
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+msword
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+msword
+msword
+zip
+zip
+zip
+msword
+msword
+msword
+Resetting database...
+Auto-increment reset.
+Database is cleared
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=ISO-8859-1
+pdf
+pdf
+pdf
+plain; charset=ISO-8859-1
+plain; charset=windows-1252
+plain; charset=windows-1252
+zip
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+zip
+zip
+zip
+pdf
+pdf
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=UTF-8
+plain; charset=windows-1252
+Indexed 20 files.
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+zip
+zip
+zip
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=UTF-8
+plain; charset=UTF-8
+plain; charset=UTF-8
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+Resetting database...
+Auto-increment reset.
+Database is cleared
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=ISO-8859-1
+pdf
+pdf
+pdf
+plain; charset=ISO-8859-1
+plain; charset=windows-1252
+plain; charset=windows-1252
+zip
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+zip
+zip
+zip
+pdf
+pdf
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=UTF-8
+plain; charset=windows-1252
+Indexed 20 files.
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=ISO-8859-1
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+zip
+zip
+zip
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+zip
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+plain; charset=UTF-8
+plain; charset=UTF-8
+plain; charset=UTF-8
+plain; charset=windows-1252
+plain; charset=windows-1252
+plain; charset=windows-1252
+Indexed 20 files.
+Resetting database...
+Auto-increment reset.
+Database is cleared
+pdf
+pdf
+pdf
+pdf
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+zip
+msword
+Indexed 17 files.
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+msword
+msword
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+vnd.openxmlformats-officedocument.wordprocessingml.document
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+pdf
+msword
+msword
+msword
+zip
+zip
+zip
+msword
+msword
+msword
+Indexed 17 files.

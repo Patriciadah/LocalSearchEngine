@@ -7,7 +7,6 @@ import com.example.searchengine_ver1.core.utils.DebugUtils;
 import com.example.searchengine_ver1.core.utils.ScoreUtils;
 import com.example.searchengine_ver1.initializer.crawler.FileCrawler;
 import com.example.searchengine_ver1.core.utils.FileUtils;
-import org.apache.tika.metadata.Metadata;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -171,6 +170,7 @@ public class FileIndexer {
         }
 
         if (!newFiles.isEmpty()) {
+
             fileIndexRepository.insertAll(newFiles);
             System.out.println("Inserted " + newFiles.size() + " new files.");
         }

@@ -32,3 +32,11 @@ Files ignored: 3
 Total files found: 8
 Files indexed: 8
 Files ignored: 0
+---- Indexing Report ----
+Total files found: 20
+Files indexed: 20
+Files ignored: 0
+---- Indexing Report ----
+Total files found: 17
+Files indexed: 17
+Files ignored: 0

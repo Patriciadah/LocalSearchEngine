@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import static com.example.searchengine_ver1.core.utils.DebugUtils.writeInFile;
+import static com.example.searchengine_ver1.core.utils.trimmer.FileIndexTrimmer.trimFileIndexContents;
+
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -27,6 +29,7 @@ public class FileIndexRepository {
  * @param files list of files resulting from file crawling
  * */
     public void insertAll(List<FileIndex> files) {
+        files=trimFileIndexContents(files);
         String sql = "INSERT INTO file_index (file_name, file_path, file_type, file_content, indexed_at,score) VALUES (?, ?, ?, ?, ?, ?)";
 
         List<Object[]> batchArgs = new ArrayList<>();
@@ -95,5 +98,7 @@ public class FileIndexRepository {
             System.err.println("Error resetting auto-increment: " + e.getMessage());
         }
     }
+
+
 }
 

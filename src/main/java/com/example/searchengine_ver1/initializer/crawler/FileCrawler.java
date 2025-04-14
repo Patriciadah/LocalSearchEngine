@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * */
 @Component
 public class FileCrawler {
-    private static final Set<String> IGNORED_EXTENSIONS = Set.of("exe", "tmp", "log", "bin","md","tlog");
+    private static final Set<String> IGNORED_EXTENSIONS = Set.of("exe", "tmp", "log", "bin","md","tlog","xlsx");
     /**
      *  @param rootDir the root directory to start crawler
      *  @return list of files
