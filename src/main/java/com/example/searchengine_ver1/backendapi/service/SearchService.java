@@ -13,10 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Service
 public class SearchService implements CommandLineRunner {
@@ -49,59 +47,43 @@ public class SearchService implements CommandLineRunner {
         rankFilesSubject.registerObserver(popularFilesTracker);
     }
     public void searchAndDisplayFiles(String query) {
-        Map<String, List<String>> parsedQuery = QueryParserUtils.parseQuery(query);
+        Map<String, List<String>> parsed = QueryParserUtils.parseQuery(query);
         List<FileIndex> results = new ArrayList<>();
-        String contentString="";
-        if (parsedQuery.isEmpty()) {
-            // Fallback to simple full-text search if query is unstructured
-            results = fileIndexRepository.searchFiles(query);
-        } else {
-            List<String> contentTerms = parsedQuery.getOrDefault("content", List.of());
-            List<String> pathTerms = parsedQuery.getOrDefault("path", List.of());
 
-            /*the actual new query*/
-            contentString = String.join(" ", contentTerms);
-            for (String pathTerm : pathTerms) {
-                List<FileIndex> partialResults;
-                fileIndexer.indexFiles(pathTerm);
-                partialResults=fileIndexRepository.searchFiles(contentString);
-                results.addAll(partialResults);
-            }
+        List<String> contentTerms = parsed.getOrDefault("content", List.of());
+        List<String> pathTerms = parsed.getOrDefault("path", List.of());
+        List<String> fileTypes = parsed.getOrDefault("fileType", List.of());
 
+        String contentString = String.join(" ", contentTerms);
 
+        // Re-index if path filter is specified
+//        if (!pathTerms.isEmpty()) {
+//            for (String path : pathTerms) {
+//                fileIndexer.indexFiles(path);
+//            }
+//        }
+
+        // Search from DB using SQL filters
+        results = fileIndexRepository.searchWithFilters(contentTerms, pathTerms, fileTypes);
+
+        // Apply score filter
+        OptionalDouble minScore = QueryParserUtils.extractMinScore(parsed);
+        if (minScore.isPresent()) {
+            results = results.stream()
+                    .filter(f -> f.getScore() != null && f.getScore() >= minScore.getAsDouble())
+                    .toList();
         }
 
-        // Rank the results
-        results = rankingService.rankFiles(results);
-
-        if (results.isEmpty()) {
-            System.out.println("No matches found for: " + query);
-            return;
+        // Apply date filter
+        OptionalInt modifiedSince = QueryParserUtils.extractModifiedSinceDays(parsed);
+        if (modifiedSince.isPresent()) {
+            LocalDateTime threshold = LocalDateTime.now().minusDays(modifiedSince.getAsInt());
+            results = results.stream()
+                    .filter(f -> f.getIndexedAt() != null && f.getIndexedAt().isAfter(threshold))
+                    .toList();
         }
 
-        // Display results
-        System.out.println("Search Results:");
-        for (FileIndex file : results) {
-            System.out.println("\nFile: " + file.getFileName() + " | Path: " + file.getFilePath());
-            String[] lines = file.getFileContent().split("\n");
-            for (int i = 0; i < Math.min(3, lines.length); i++) {
-                System.out.println("  " + lines[i]);
-            }
-        }
-
-        // Notify query observers
-        if (!contentString.isEmpty()) {
-            suggestQuerySubject.useQuery(contentString);
-        } else {
-            suggestQuerySubject.useQuery(query);
-        }
-
-        // Notify file observers
-        rankFilesSubject.notifyObservers(
-                results.stream().map(FileIndex::getFilePath).toList()
-        );
-
-        /*List<FileIndex> results = fileIndexRepository.searchFiles(query);
+        // Ranking
         results = rankingService.rankFiles(results);
 
         if (results.isEmpty()) {
@@ -112,23 +94,16 @@ public class SearchService implements CommandLineRunner {
         System.out.println("Search Results:");
         for (FileIndex file : results) {
             System.out.println("\nFile: " + file.getFileName() + " | Path: " + file.getFilePath());
-
             String[] lines = file.getFileContent().split("\n");
             for (int i = 0; i < Math.min(3, lines.length); i++) {
                 System.out.println("  " + lines[i]);
             }
         }
 
-        // Notify query-based observers
-        suggestQuerySubject.useQuery(query);
-
-        // Notify file observers with file paths
-        rankFilesSubject.notifyObservers(
-                results.stream().map(FileIndex::getFilePath).toList()
-        );
-        */
-
+        suggestQuerySubject.useQuery(contentString.isEmpty() ? query : contentString);
+        rankFilesSubject.notifyObservers(results.stream().map(FileIndex::getFilePath).toList());
     }
+
 
 
     @Override

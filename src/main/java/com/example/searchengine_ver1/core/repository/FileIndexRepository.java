@@ -11,6 +11,8 @@ import static com.example.searchengine_ver1.core.utils.trimmer.FileIndexTrimmer.
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  *  Implements dto objects using JDBC instead of JPA for better control of queries (lower level)
  *  and efficiency (use of batch inserting)
@@ -46,6 +48,7 @@ public class FileIndexRepository {
 
         jdbcTemplate.batchUpdate(sql, batchArgs);
     }
+
     public void updateAll(List<FileIndex> files) {
         String sql = "UPDATE file_index " +
                 "SET file_name = ?, file_type = ?, file_content = ?, indexed_at = ?, score= ?" +
@@ -97,6 +100,33 @@ public class FileIndexRepository {
         } catch (Exception e) {
             System.err.println("Error resetting auto-increment: " + e.getMessage());
         }
+    }
+    public List<FileIndex> searchWithFilters(List<String> contentTerms, List<String> pathTerms, List<String> fileTypes) {
+        StringBuilder sql = new StringBuilder("SELECT * FROM file_index WHERE");
+        List<Object> params = new ArrayList<>();
+
+        if (!contentTerms.isEmpty()) {
+            String combined = String.join(" ", contentTerms);
+            sql.append(" MATCH(file_name, file_content) AGAINST (? IN NATURAL LANGUAGE MODE)");
+
+            params.add(combined);
+        }
+
+        if (!pathTerms.isEmpty()) {
+            for (String term : pathTerms) {
+                sql.append(" AND file_path LIKE ?");
+                params.add("%" + term + "%");
+            }
+        }
+
+        if (!fileTypes.isEmpty()) {
+            sql.append(" AND file_type IN (");
+            sql.append(fileTypes.stream().map(f -> "?").collect(Collectors.joining(",")));
+            sql.append(")");
+            params.addAll(fileTypes);
+        }
+
+        return jdbcTemplate.query(sql.toString(), new FileIndexRowMapper(), params.toArray());
     }
 
 
