@@ -39,11 +39,4 @@ public class RankingService {
                 .toList();
     }
 
-    public void updateFileFrequency(List<FileIndex> files) {
-        List<String> paths = files.stream()
-                .map(FileIndex::getFilePath)
-                .toList();
-
-        popularFilesTracker.onSearch(paths); // update frequencies
-    }
 }

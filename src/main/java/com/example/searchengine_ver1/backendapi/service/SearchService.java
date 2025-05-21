@@ -8,6 +8,7 @@ import com.example.searchengine_ver1.backendapi.service.subject.SuggestQuerySubj
 import com.example.searchengine_ver1.core.model.FileIndex;
 import com.example.searchengine_ver1.core.repository.FileIndexRepository;
 import com.example.searchengine_ver1.core.utils.QueryParserUtils;
+import com.example.searchengine_ver1.exception.ContentNotPresentException;
 import com.example.searchengine_ver1.initializer.indexer.FileIndexer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -46,31 +47,29 @@ public class SearchService implements CommandLineRunner {
     private void configureRankingSubject(){
         rankFilesSubject.registerObserver(popularFilesTracker);
     }
+
     public void searchAndDisplayFiles(String query) {
         Map<String, List<String>> parsed = QueryParserUtils.parseQuery(query);
-        List<FileIndex> results = new ArrayList<>();
+        List<FileIndex> results;
 
+        // Extracts content, path, fileType
         List<String> contentTerms = parsed.getOrDefault("content", List.of());
         List<String> pathTerms = parsed.getOrDefault("path", List.of());
         List<String> fileTypes = parsed.getOrDefault("fileType", List.of());
 
+        // Join content terms together
         String contentString = String.join(" ", contentTerms);
 
-        // Re-index if path filter is specified
-//        if (!pathTerms.isEmpty()) {
-//            for (String path : pathTerms) {
-//                fileIndexer.indexFiles(path);
-//            }
-//        }
-
-        // Search from DB using SQL filters
+        try{
+        // Search from DB using SQL filters - content, path, fileTypes
+        //                                      -> Main filters for indexing
         results = fileIndexRepository.searchWithFilters(contentTerms, pathTerms, fileTypes);
 
         // Apply score filter
         OptionalDouble minScore = QueryParserUtils.extractMinScore(parsed);
         if (minScore.isPresent()) {
             results = results.stream()
-                    .filter(f -> f.getScore() != null && f.getScore() >= minScore.getAsDouble())
+                    .filter(f -> f.getScore() != null && f.getScore() > minScore.getAsDouble())
                     .toList();
         }
 
@@ -102,6 +101,7 @@ public class SearchService implements CommandLineRunner {
 
         suggestQuerySubject.useQuery(contentString.isEmpty() ? query : contentString);
         rankFilesSubject.notifyObservers(results.stream().map(FileIndex::getFilePath).toList());
+        }catch(ContentNotPresentException e){System.out.println(e.getMessage());}
     }
 
 

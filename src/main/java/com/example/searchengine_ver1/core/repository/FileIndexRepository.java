@@ -3,6 +3,7 @@ package com.example.searchengine_ver1.core.repository;
 
 import com.example.searchengine_ver1.core.model.FileIndex;
 import com.example.searchengine_ver1.core.utils.DebugUtils;
+import com.example.searchengine_ver1.exception.ContentNotPresentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -101,16 +102,18 @@ public class FileIndexRepository {
             System.err.println("Error resetting auto-increment: " + e.getMessage());
         }
     }
-    public List<FileIndex> searchWithFilters(List<String> contentTerms, List<String> pathTerms, List<String> fileTypes) {
+    public List<FileIndex> searchWithFilters(List<String> contentTerms, List<String> pathTerms, List<String> fileTypes) throws ContentNotPresentException {
         StringBuilder sql = new StringBuilder("SELECT * FROM file_index WHERE");
         List<Object> params = new ArrayList<>();
 
         if (!contentTerms.isEmpty()) {
             String combined = String.join(" ", contentTerms);
             sql.append(" MATCH(file_name, file_content) AGAINST (? IN NATURAL LANGUAGE MODE)");
-
             params.add(combined);
         }
+        else throw new ContentNotPresentException("Please introduce content message");
+
+
 
         if (!pathTerms.isEmpty()) {
             for (String term : pathTerms) {
@@ -118,6 +121,7 @@ public class FileIndexRepository {
                 params.add("%" + term + "%");
             }
         }
+       
 
         if (!fileTypes.isEmpty()) {
             sql.append(" AND file_type IN (");
@@ -126,7 +130,8 @@ public class FileIndexRepository {
             params.addAll(fileTypes);
         }
 
-        return jdbcTemplate.query(sql.toString(), new FileIndexRowMapper(), params.toArray());
+        List<FileIndex> sqlResult = jdbcTemplate.query(sql.toString(), new FileIndexRowMapper(), params.toArray());
+        return sqlResult;
     }
 
 

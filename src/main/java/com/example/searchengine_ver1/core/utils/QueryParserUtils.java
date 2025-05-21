@@ -5,7 +5,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class QueryParserUtils {
-
+    /**
+     * @return Map of input options
+     * Parses through the input and stores the pair key:value in a Map
+     * */
     public static Map<String, List<String>> parseQuery(String query) {
         Map<String, List<String>> map = new HashMap<>();
 
@@ -20,7 +23,10 @@ public class QueryParserUtils {
 
         return map;
     }
-
+    /**
+     * @return OptionalDouble
+     * Extracts value m in option score:>m
+     * */
     public static OptionalDouble extractMinScore(Map<String, List<String>> parsed) {
         if (!parsed.containsKey("score")) return OptionalDouble.empty();
         for (String scoreVal : parsed.get("score")) {
@@ -32,7 +38,10 @@ public class QueryParserUtils {
         }
         return OptionalDouble.empty();
     }
-
+    /**
+     * @return OptionalDouble
+     * Extracts number of days since file was updated
+     * */
     public static OptionalInt extractModifiedSinceDays(Map<String, List<String>> parsed) {
         if (!parsed.containsKey("modifiedSince")) return OptionalInt.empty();
         for (String val : parsed.get("modifiedSince")) {
