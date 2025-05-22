@@ -4,7 +4,8 @@ import com.example.searchengine_ver1.backendapi.service.SearchService;
 import com.example.searchengine_ver1.core.model.FileIndex;
 import com.example.searchengine_ver1.core.model.SearchResponse;
 import com.example.searchengine_ver1.exception.ContentNotPresentException;
-
+import com.example.searchengine_ver1.core.widget.WidgetFactory;
+import com.example.searchengine_ver1.core.widget.Widget;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ public class SearchController {
 
     @Autowired
     private SearchService searchService;
-
+    private final WidgetFactory widgetFactory = new WidgetFactory();
 
     @GetMapping
     public ResponseEntity<SearchResponse> search(@RequestParam String query) {
@@ -33,12 +34,13 @@ public class SearchController {
             return ResponseEntity.ok(new SearchResponse("No results found for: " + query));
         }
 
-
+        List<Widget> specialWidgets = widgetFactory.getSpecialWidgets(query);
+        List<Widget> contextWidgets = widgetFactory.getContextWidgets(results);
 
         SearchResponse response = new SearchResponse();
         response.setResults(results);
-        //response.setSpecialWidgets(specialWidgets);
-        //response.setContextWidgets(contextWidgets);
+        response.setSpecialWidgets(specialWidgets);
+        response.setContextWidgets(contextWidgets);
         //response.setMetadataSummary(metadataAnalyzer.analyze(results));
         response.setMessage("Success");
 

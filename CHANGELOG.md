@@ -1,3 +1,16 @@
+# Iteration 3
+## May 22, 2025
+
+-----
+### Added Widget logic
+
+- Implemented Factory pattern 
+- Defined 2 types of Widgets: CalculatorWidget and SaturnWidget for user query
+- Images are displayed if word "calculator" or "saturn" is present in query
+- Introduced separation between Special (5/10) checkpoint and Context-Aware (8/10) widgets
+- Special: uses query 
+- Context-Aware: uses results
+
 ## May 21, 2025
 
 ------
