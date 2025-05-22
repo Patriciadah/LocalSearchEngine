@@ -1,6 +1,5 @@
 package com.example.searchengine_ver1.backendapi.service.observer;
 
-import com.example.searchengine_ver1.backendapi.service.SearchService;
 import com.example.searchengine_ver1.backendapi.service.subject.SuggestQuerySubject;
 import org.springframework.stereotype.Component;
 

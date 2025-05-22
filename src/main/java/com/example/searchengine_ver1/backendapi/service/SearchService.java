@@ -11,14 +11,16 @@ import com.example.searchengine_ver1.core.utils.QueryParserUtils;
 import com.example.searchengine_ver1.exception.ContentNotPresentException;
 import com.example.searchengine_ver1.initializer.indexer.FileIndexer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.OptionalDouble;
+import java.util.OptionalInt;
 
 @Service
-public class SearchService implements CommandLineRunner {
+public class SearchService {
     FileIndexRepository fileIndexRepository;
     SuggestQuerySubject suggestQuerySubject;
     RankFilesSubject rankFilesSubject;
@@ -28,7 +30,6 @@ public class SearchService implements CommandLineRunner {
     PopularFilesTracker popularFilesTracker;
     RankingService rankingService;
     FileIndexer fileIndexer;
-
     @Autowired
     public SearchService(FileIndexRepository fileIndexRepository,SuggestQuerySubject suggestQuerySubject,HistoryTracker historyTracker,PopularQueryTracker popularQueryTracker,PopularFilesTracker popularFilesTracker,RankFilesSubject rankFilesSubject,FileIndexer fileIndexer){
         this.fileIndexer=fileIndexer;
@@ -43,12 +44,10 @@ public class SearchService implements CommandLineRunner {
         configureRankingSubject();
 
     }
-
     private void configureRankingSubject(){
         rankFilesSubject.registerObserver(popularFilesTracker);
     }
-
-    public void searchAndDisplayFiles(String query) {
+    public List<FileIndex> search(String query) throws ContentNotPresentException {
         Map<String, List<String>> parsed = QueryParserUtils.parseQuery(query);
         List<FileIndex> results;
 
@@ -60,72 +59,37 @@ public class SearchService implements CommandLineRunner {
         // Join content terms together
         String contentString = String.join(" ", contentTerms);
 
-        try{
-        // Search from DB using SQL filters - content, path, fileTypes
-        //                                      -> Main filters for indexing
-        results = fileIndexRepository.searchWithFilters(contentTerms, pathTerms, fileTypes);
+            // Search from DB using SQL filters - content, path, fileTypes
+            //                                      -> Main filters for indexing
+            results = fileIndexRepository.searchWithFilters(contentTerms, pathTerms, fileTypes);
 
-        // Apply score filter
-        OptionalDouble minScore = QueryParserUtils.extractMinScore(parsed);
-        if (minScore.isPresent()) {
-            results = results.stream()
-                    .filter(f -> f.getScore() != null && f.getScore() > minScore.getAsDouble())
-                    .toList();
-        }
-
-        // Apply date filter
-        OptionalInt modifiedSince = QueryParserUtils.extractModifiedSinceDays(parsed);
-        if (modifiedSince.isPresent()) {
-            LocalDateTime threshold = LocalDateTime.now().minusDays(modifiedSince.getAsInt());
-            results = results.stream()
-                    .filter(f -> f.getIndexedAt() != null && f.getIndexedAt().isAfter(threshold))
-                    .toList();
-        }
-
-        // Ranking
-        results = rankingService.rankFiles(results);
-
-        if (results.isEmpty()) {
-            System.out.println("No matches found for: " + query);
-            return;
-        }
-
-        System.out.println("Search Results:");
-        for (FileIndex file : results) {
-            System.out.println("\nFile: " + file.getFileName() + " | Path: " + file.getFilePath());
-            String[] lines = file.getFileContent().split("\n");
-            for (int i = 0; i < Math.min(3, lines.length); i++) {
-                System.out.println("  " + lines[i]);
-            }
-        }
-
-        suggestQuerySubject.useQuery(contentString.isEmpty() ? query : contentString);
-        rankFilesSubject.notifyObservers(results.stream().map(FileIndex::getFilePath).toList());
-        }catch(ContentNotPresentException e){System.out.println(e.getMessage());}
-    }
-
-
-
-    @Override
-    public void run(String... args) {
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-
-            System.out.print("\nEnter search query (or type 'exit' to quit): ");
-
-
-            String suggestion=suggestionService.suggest();
-            System.out.println(suggestion);
-            String userQuery = scanner.nextLine();
-
-            if ("exit".equalsIgnoreCase(userQuery)) {
-                System.out.println("Exiting search...");
-                break;
+            // Apply score filter
+            OptionalDouble minScore = QueryParserUtils.extractMinScore(parsed);
+            if (minScore.isPresent()) {
+                results = results.stream()
+                        .filter(f -> f.getScore() != null && f.getScore() > minScore.getAsDouble())
+                        .toList();
             }
 
-            searchAndDisplayFiles(userQuery);
+            // Apply date filter
+            OptionalInt modifiedSince = QueryParserUtils.extractModifiedSinceDays(parsed);
+            if (modifiedSince.isPresent()) {
+                LocalDateTime threshold = LocalDateTime.now().minusDays(modifiedSince.getAsInt());
+                results = results.stream()
+                        .filter(f -> f.getIndexedAt() != null && f.getIndexedAt().isAfter(threshold))
+                        .toList();
+            }
 
-        }
-        scanner.close();
+            // Ranking
+            results = rankingService.rankFiles(results);
+
+            if (results.isEmpty()) {
+                 return null;
+            }
+
+            suggestQuerySubject.useQuery(contentString.isEmpty() ? query : contentString);
+            rankFilesSubject.notifyObservers(results.stream().map(FileIndex::getFilePath).toList());
+            return results;
+
     }
 }

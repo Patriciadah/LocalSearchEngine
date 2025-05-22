@@ -48,7 +48,7 @@ public class SuggestionService {
         } else if (recentString.isEmpty()) {
             return popularString;
         } else {
-            return popularString + " | " + recentString;
+            return popularString + "\n" + recentString;
         }
     }
 }
