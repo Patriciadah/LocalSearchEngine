@@ -2,6 +2,27 @@
 ## May 22, 2025
 
 -----
+### Caching with Proxy pattern
+
+| Class                    | Role                                                      |
+| ------------------------ | --------------------------------------------------------- |
+| `SearchServiceInterface` | Interface used by both proxy & real service               |
+| `RealSearchService`      | The actual implementation (your existing `SearchService`) |
+| `CachedSearchProxy`      | Proxy class that caches results                           |
+| `SearchController`       | Calls the proxy instead of real service                   |
+- Wired CachedSearchProxy with RealSearchProxy through Spring boot framework using `@Configuration` bean
+
+### Upgraded spelling correction
+
+- Introduced Strategy pattern for enforcing Open/Closed principle
+- 2 mock strategies : Norvig's strategy and basic dictionary checking
+- Attempted to solve 7/10 completely
+
+### Implemented metadata analyzer
+
+- Implemented 9/10 task through class MetadataAnalyzer
+- Integrate it in SearchController
+
 ### Added Widget logic
 
 - Implemented Factory pattern 

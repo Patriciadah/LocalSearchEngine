@@ -1,5 +1,6 @@
 package com.example.searchengine_ver1.backendapi.service;
 
+import com.example.searchengine_ver1.backendapi.proxy.SearchServiceInterface;
 import com.example.searchengine_ver1.backendapi.service.observer.HistoryTracker;
 import com.example.searchengine_ver1.backendapi.service.observer.PopularFilesTracker;
 import com.example.searchengine_ver1.backendapi.service.observer.PopularQueryTracker;
@@ -11,6 +12,7 @@ import com.example.searchengine_ver1.core.utils.QueryParserUtils;
 import com.example.searchengine_ver1.exception.ContentNotPresentException;
 import com.example.searchengine_ver1.initializer.indexer.FileIndexer;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -20,7 +22,8 @@ import java.util.OptionalDouble;
 import java.util.OptionalInt;
 
 @Service
-public class SearchService {
+
+public class RealSearchService implements SearchServiceInterface {
     FileIndexRepository fileIndexRepository;
     SuggestQuerySubject suggestQuerySubject;
     RankFilesSubject rankFilesSubject;
@@ -31,7 +34,7 @@ public class SearchService {
     RankingService rankingService;
     FileIndexer fileIndexer;
     @Autowired
-    public SearchService(FileIndexRepository fileIndexRepository,SuggestQuerySubject suggestQuerySubject,HistoryTracker historyTracker,PopularQueryTracker popularQueryTracker,PopularFilesTracker popularFilesTracker,RankFilesSubject rankFilesSubject,FileIndexer fileIndexer){
+    public RealSearchService(FileIndexRepository fileIndexRepository, SuggestQuerySubject suggestQuerySubject, HistoryTracker historyTracker, PopularQueryTracker popularQueryTracker, PopularFilesTracker popularFilesTracker, RankFilesSubject rankFilesSubject, FileIndexer fileIndexer){
         this.fileIndexer=fileIndexer;
         this.fileIndexRepository=fileIndexRepository;
         this.suggestQuerySubject=suggestQuerySubject;
