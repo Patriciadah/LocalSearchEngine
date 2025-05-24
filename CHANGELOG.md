@@ -2,7 +2,9 @@
 ## May 24, 2025
 
 ----
-### Fixing bugs and improving logic- final touches
+### Fixing bugs and improving logic - final touches
+- Added pre-commit hook checking for `TODO` word in comments: if found, commit triggers error
+- Put pre-commit in folder `githooks` for project persistence
 - Fixed bug with searching in Database - added `OR LIKE % content_name %` for name of file focus
 - Fixed bug with proxy -> started properly using `SearchServiceInterface` instead of `RealSearchService`
 ## May 23, 2025

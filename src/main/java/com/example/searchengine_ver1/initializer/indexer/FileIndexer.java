@@ -37,7 +37,7 @@ public class FileIndexer {
         this.fileIndexRepository = fileIndexRepository;
         this.indexingLogger= IndexingLoggerFactory.createLogger(format);
     }
-    //TODO implement multiple line comment for class and methods
+
     /**
      * Scans the file system and indexes files into the database.
      * @param rootDirectory The base directory to index.
@@ -56,7 +56,7 @@ public class FileIndexer {
             files = fileCrawler.crawlDirectory(rootDirectory);
         }
         catch(Exception e){
-            // TODO inform for code robustness
+
             DebugUtils.writeInFile("Something went wong with FileCrawler");
         }
         int totalFiles = files != null ? files.size() : 0;

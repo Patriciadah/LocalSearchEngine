@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 /**
  *  Implements dto objects using JDBC instead of JPA for better control of queries (lower level)
  *  and efficiency (use of batch inserting)
- *  TODO: see limit of batch and impose error handling
  * */
 @Repository
 public class FileIndexRepository {
