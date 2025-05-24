@@ -36,8 +36,4 @@ public class FileCrawler {
         System.out.println("Extension for:" + file.getPath()+" "+ extension);
         return !IGNORED_EXTENSIONS.contains(extension);
     }
-    private boolean isValidFileTxT(File file) {
-        String extension = FileUtils.getFileExtension(file);
-        return extension.equals("plain");
-    }
 }

@@ -80,3 +80,15 @@ Files ignored: 0
 Total files found: 46
 Files indexed: 46
 Files ignored: 1
+---- Indexing Report ----
+Total files found: 62
+Files indexed: 62
+Files ignored: 20
+---- Indexing Report ----
+Total files found: 62
+Files indexed: 62
+Files ignored: 20
+---- Indexing Report ----
+Total files found: 62
+Files indexed: 62
+Files ignored: 20

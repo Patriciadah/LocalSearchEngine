@@ -1,4 +1,21 @@
 # Iteration 3
+## May 24, 2025
+
+----
+### Fixing bugs and improving logic- final touches
+- Fixed bug with searching in Database - added `OR LIKE % content_name %` for name of file focus
+- Fixed bug with proxy -> started properly using `SearchServiceInterface` instead of `RealSearchService`
+## May 23, 2025
+
+------
+
+### Fixing bugs and improving logic 
+- Fixed image issue in frontend
+- Made suggestion appear in better format using `getStructuredSuggestions` function
+- Solved query format in React frontend
+- Format MIME type extensions to return user-friendly names(e.g. from `vnd.openxmlformats-officedocument.spreadsheetml.sheet` to Excel)
+- Fixed context-aware widgets bug
+
 ## May 22, 2025
 
 -----

@@ -13,21 +13,36 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Map;
 import java.util.Set;
 
 public class FileUtils {
-
+    private static final Map<String, String> mimeExtensionMap = Map.ofEntries(
+            Map.entry("pdf", "PDF"),
+            Map.entry("msword", "Word"),
+            Map.entry("vnd.openxmlformats-officedocument.wordprocessingml.document", "DOCX"),
+            Map.entry("vnd.ms-excel", "Excel"),
+            Map.entry("vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Excel"),
+            Map.entry("jpeg", "Image"),
+            Map.entry("png", "Image"),
+            Map.entry("jpg", "Image"),
+            Map.entry("plain", "Text"),
+            Map.entry("html", "HTML"),
+            Map.entry("bmp","Image"),
+            Map.entry("plain; charset=UTF-8","Text"),
+            Map.entry("plain; charset=ISO-8859-1","Text")
+    );
     /**
      * Extracts the text content from a file using Apache Tika.
      */
     public static String extractText(File file) {
         // If it's a .txt file, read manually
-        if (getFileExtension(file).equals("plain")) {
-            try { DebugUtils.writeContent("reading text file: " + file.getAbsolutePath() + "\n");
+        if (getFileExtension(file).equals("Text")) {
+            try { //DebugUtils.writeContent("reading text file: " + file.getAbsolutePath() + "\n");
                 return Files.readString(Paths.get(file.getAbsolutePath()), StandardCharsets.UTF_8);
             } catch (IOException e) {
                 System.err.println("Error reading text file: " + file.getAbsolutePath()+ "\n");
-                DebugUtils.writeContent("Error reading text file: " + file.getAbsolutePath());
+               // DebugUtils.writeContent("Error reading text file: " + file.getAbsolutePath());
                 return "";
             }
         }
@@ -70,13 +85,14 @@ public class FileUtils {
      */
     public static String getFileExtension(File file) {
         Metadata metadata = extractMetadata(file);
-        String mimeType = metadata.get("Content-Type"); // Example: "application/pdf"
-
+        String mimeType = metadata.get("Content-Type");
         if (mimeType != null) {
-            DebugUtils.writeInFile(mimeType.substring(mimeType.lastIndexOf('/') + 1));
-            return mimeType.substring(mimeType.lastIndexOf('/') + 1); // Extracts "pdf" from "application/pdf"
+            String subtype = mimeType.contains("/") ? mimeType.substring(mimeType.indexOf("/") + 1) : mimeType;
+            DebugUtils.writeInFile(subtype);
+            return mimeExtensionMap.getOrDefault(subtype, subtype);
         }
 
-        return "";
+        return "Unknown";
     }
+
 }

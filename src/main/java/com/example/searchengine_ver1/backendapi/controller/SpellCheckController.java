@@ -3,6 +3,7 @@ package com.example.searchengine_ver1.backendapi.controller;
 import com.example.searchengine_ver1.backendapi.service.SpellingCorrectorService;
 import com.example.searchengine_ver1.backendapi.spellcheck.DictionaryOnlyStrategy;
 import com.example.searchengine_ver1.backendapi.spellcheck.NorvigCorrectionStrategy;
+import com.example.searchengine_ver1.core.utils.DebugUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +23,8 @@ public class SpellCheckController {
 
     @GetMapping
     public String correctQuery(@RequestParam String query) {
+        DebugUtils.writeInFile("Macar am ajus la correct aici"+query);
+
         return Arrays.stream(query.split("\\s+"))
                 .map(spellingCorrectorService::correct)
                 .collect(Collectors.joining(" "));

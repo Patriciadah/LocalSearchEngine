@@ -1,6 +1,8 @@
-package com.example.searchengine_ver1.backendapi.service;
+package com.example.searchengine_ver1.backendapi.proxy;
 
 import com.example.searchengine_ver1.backendapi.proxy.SearchServiceInterface;
+import com.example.searchengine_ver1.backendapi.service.RankingService;
+import com.example.searchengine_ver1.backendapi.service.SuggestionService;
 import com.example.searchengine_ver1.backendapi.service.observer.HistoryTracker;
 import com.example.searchengine_ver1.backendapi.service.observer.PopularFilesTracker;
 import com.example.searchengine_ver1.backendapi.service.observer.PopularQueryTracker;

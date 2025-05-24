@@ -4,7 +4,9 @@ import com.example.searchengine_ver1.backendapi.service.observer.HistoryTracker;
 import com.example.searchengine_ver1.backendapi.service.observer.PopularQueryTracker;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class SuggestionService {
@@ -29,11 +31,18 @@ public class SuggestionService {
                 .limit(5)
                 .toList();
     }
+    public Map<String, List<String>> getStructuredSuggestions() {
+        Map<String, List<String>> result = new HashMap<>();
+        result.put("popular", suggestPopular());
+        result.put("recent", suggestMostRecent());
+        return result;
+    }
+
     public String suggest(){
         List<String> popularSuggestions = suggestPopular();
         List<String> recentSuggestions = suggestMostRecent();
 
-        String popularString = popularSuggestions.isEmpty()
+       String popularString = popularSuggestions.isEmpty()
                 ? ""
                 : "Popular suggestions: " + String.join(", ", popularSuggestions);
 

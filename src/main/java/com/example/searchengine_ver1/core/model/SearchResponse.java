@@ -12,6 +12,27 @@ public class SearchResponse {
     private List<Widget> specialWidgets;
     private List<Widget> contextWidgets;
     private Map<String, Integer> metadataSummary;
+    private boolean showAnalyzeLogs;
+    private boolean showGallery;
+
+// + getters/setters
+
+
+    public boolean isShowAnalyzeLogs() {
+        return showAnalyzeLogs;
+    }
+
+    public void setShowAnalyzeLogs(boolean showAnalyzeLogs) {
+        this.showAnalyzeLogs = showAnalyzeLogs;
+    }
+
+    public boolean isShowGallery() {
+        return showGallery;
+    }
+
+    public void setShowGallery(boolean showGallery) {
+        this.showGallery = showGallery;
+    }
 
     public SearchResponse() {}
 

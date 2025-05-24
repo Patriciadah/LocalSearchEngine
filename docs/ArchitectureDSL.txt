@@ -30,7 +30,7 @@ workspace "Local Search Engine with Content Search" "Indexes and searches local 
                      dw = component "Database Writer" "Java" "Stores indexed data"
 
             fc -> lse.fs "Reads files"
-            fc -> me "Extracts metadata"
+            fc -> me "Extracts Fmetadata"
             me -> dw "Stores metadata in MySQL"
             te -> wm "Extracts text from PDFs, DOCX, etc."
             wm -> dw "Stores word indexes"

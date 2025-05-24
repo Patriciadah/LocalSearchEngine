@@ -2,9 +2,8 @@ package com.example.searchengine_ver1.backendapi.config;
 
 import com.example.searchengine_ver1.backendapi.proxy.CachedSearchProxy;
 import com.example.searchengine_ver1.backendapi.proxy.SearchServiceInterface;
-import com.example.searchengine_ver1.backendapi.service.RealSearchService;
+import com.example.searchengine_ver1.backendapi.proxy.RealSearchService;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 /**

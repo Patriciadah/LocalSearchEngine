@@ -3,7 +3,9 @@ package com.example.searchengine_ver1.core.widget;
 import com.example.searchengine_ver1.core.model.FileIndex;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class WidgetFactory {
 
@@ -21,28 +23,33 @@ public class WidgetFactory {
         if (query.toLowerCase().contains("saturn")) widgets.add(createWidget("saturn"));
         return widgets;
     }
-//TODO: see functions
-    public List<Widget> getContextWidgets(List<FileIndex> results) {
-        List<Widget> widgets = new ArrayList<>();
 
-        long logCount = results.stream().filter(f -> f.getFileType().equalsIgnoreCase("LOG")).count();
-        long imageCount = results.stream().filter(f -> f.getFileType().matches("(?i)(jpg|jpeg|png)")).count();
+    public Map<String, Boolean> getContextWidgetFlags(List<FileIndex> results) {
+        // Calculate log file count
+        long logCount = results.stream()
+                .filter(f -> f.getFileType().matches("(?i)(Text)") && f.getFileName().toLowerCase().endsWith(".log"))
+                .count();
 
+        // Calculate image file count using the regex for file type
+        long imageCount = results.stream()
+                .filter(f -> f.getFileType() != null && f.getFileType().matches("(?i)(Image)"))
+                .count();
+
+        // Initialize the map with flags set to false
+        Map<String, Boolean> contextFlags = new HashMap<>();
+        contextFlags.put("logFlag", false);
+        contextFlags.put("imageFlag", false);
+
+        // Check conditions and update flags
         if (logCount >= 2) {
-            widgets.add(new Widget() {
-                public String getName() { return "Analyze Logs"; }
-                public String getImageUrl() { return "/images/logs.png"; }
-            });
+            contextFlags.put("logFlag", true);
         }
 
         if (imageCount >= 2) {
-            widgets.add(new Widget() {
-                public String getName() { return "Gallery"; }
-                public String getImageUrl() { return "/images/gallery.png"; }
-            });
+            contextFlags.put("imageFlag", true);
         }
 
-        return widgets;
-    }
+        return contextFlags;
     }
 
+}

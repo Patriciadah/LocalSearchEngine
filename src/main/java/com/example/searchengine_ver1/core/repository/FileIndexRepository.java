@@ -108,8 +108,10 @@ public class FileIndexRepository {
 
         if (!contentTerms.isEmpty()) {
             String combined = String.join(" ", contentTerms);
-            sql.append(" MATCH(file_name, file_content) AGAINST (? IN NATURAL LANGUAGE MODE)");
+            sql.append(" (MATCH(file_name, file_content) AGAINST (? IN NATURAL LANGUAGE MODE)");
             params.add(combined);
+            sql.append(" OR file_name LIKE ?)");
+            params.add("%" + combined + "%");
         }
         else throw new ContentNotPresentException("Please introduce content message");
 
